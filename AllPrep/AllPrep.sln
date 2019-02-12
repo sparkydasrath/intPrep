@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctci", "ctci", "{76704825-9216-47DB-88CF-1DA939946228}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "leetcode", "leetcode", "{8258AB81-5846-465F-B156-39EDE6E46C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringAndArrays", "..\ctci\StringAndArrays\StringAndArrays\StringAndArrays.csproj", "{DABD9159-B1F7-4E31-B3D8-B4A42849418F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsAndArraysTests", "..\ctci\StringAndArrays\StringsAndArraysTests\StringsAndArraysTests.csproj", "{8D5981AB-8525-42BF-82E8-25A6455F30B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursionQuestions", "..\ctci\Recursion\RecursionQuestions\RecursionQuestions\RecursionQuestions.csproj", "{9D404651-472A-4008-805D-360756DC7F78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DABD9159-B1F7-4E31-B3D8-B4A42849418F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DABD9159-B1F7-4E31-B3D8-B4A42849418F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DABD9159-B1F7-4E31-B3D8-B4A42849418F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DABD9159-B1F7-4E31-B3D8-B4A42849418F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D5981AB-8525-42BF-82E8-25A6455F30B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D5981AB-8525-42BF-82E8-25A6455F30B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D5981AB-8525-42BF-82E8-25A6455F30B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D5981AB-8525-42BF-82E8-25A6455F30B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D404651-472A-4008-805D-360756DC7F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D404651-472A-4008-805D-360756DC7F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D404651-472A-4008-805D-360756DC7F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D404651-472A-4008-805D-360756DC7F78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DABD9159-B1F7-4E31-B3D8-B4A42849418F} = {76704825-9216-47DB-88CF-1DA939946228}
+		{8D5981AB-8525-42BF-82E8-25A6455F30B8} = {76704825-9216-47DB-88CF-1DA939946228}
+		{9D404651-472A-4008-805D-360756DC7F78} = {76704825-9216-47DB-88CF-1DA939946228}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DC17E7E-98AC-4B2B-83A4-28E2F1B61B2E}
+	EndGlobalSection
+EndGlobal

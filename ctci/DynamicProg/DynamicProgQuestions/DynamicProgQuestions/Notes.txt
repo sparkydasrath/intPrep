@@ -1,0 +1,7 @@
+﻿ Strategies for solving optimization (min/max) problems:
+
+ 1. Greedy Method
+ 2. Dynamic Programming
+ 3. Branch & Bound
+
+ 

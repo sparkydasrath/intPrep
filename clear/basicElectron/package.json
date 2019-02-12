@@ -1,0 +1,16 @@
+{
+  "name": "basicelectron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/electron": "^1.6.10",
+    "electron": "^3.0.8",
+    "typescript": "^3.1.6"
+  }
+}
