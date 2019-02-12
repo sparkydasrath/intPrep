@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace SystemDesign
 {
@@ -39,59 +40,6 @@ namespace SystemDesign
      *
      */
 
-    public class Entity
-    {
-        public Entity(int id, string symbol)
-        {
-            Id = id;
-            Symbol = symbol;
-        }
-
-        public int Id { get; set; }
-        public string Symbol { get; set; }
-    }
-
-    public class FakeStream
-    {
-        private int entityCount = -1;
-
-        public List<Entity> Entities => GenerateEntities();
-
-        public Entity GetNext()
-        {
-            entityCount++;
-            if (entityCount < Entities.Count)
-            {
-                return Entities[entityCount];
-            }
-
-            return null;
-        }
-
-        private List<Entity> GenerateEntities()
-        {
-            List<Entity> entities = new List<Entity>
-            {
-                new Entity(1, "GOOG"),
-                new Entity(2, "AMZN"),
-                new Entity(3, "IBM"),
-                new Entity(4, "GOOG"),
-                new Entity(5, "AAPL"),
-                new Entity(6, "AAPL"),
-                new Entity(7, "IBM"),
-                new Entity(8, "AMZN"),
-                new Entity(9, "TSLA"),
-                new Entity(10, "TSLA"),
-                new Entity(11, "MSFT"),
-                new Entity(12, "TSLA"),
-                new Entity(13, "MSFT"),
-                new Entity(14, "MSFT"),
-            };
-
-            return entities;
-        }
-    }
-
     public class SortStream
     {
         private readonly string baseDir = $"F:\\repos\\intPrep\\systemDesignOutputFiles\\";
@@ -115,13 +63,35 @@ namespace SystemDesign
                 File.Delete(filePath);
         }
 
-        public Entity GetCompressedEntityFromStream() => fs.GetNext();
+        public string CleanFileForOutputStream(string filepath)
+        {
+            string[] splitFile = filepath.Split('\\');
+            string name = splitFile.Last();
+            string[] splitName = name.Split('.');
+            string sortedName = splitName.First();
+            return sortedName;
+        }
+
+        public Entity InputStreamGetCompressedEntity() => fs.GetNext();
+
+        public List<string> OutputStreamGenerateStream()
+        {
+            string[] files = Directory.GetFiles(baseDir);
+            List<string> outputStream = new List<string>();
+            foreach (string file in files)
+            {
+                string cleanedName = CleanFileForOutputStream(file);
+                outputStream.Add(cleanedName);
+            }
+
+            return outputStream;
+        }
 
         public Entity UncompressEntity() =>
-            /*
-            * Nothing need to be done here really, just using this to illustrate the steps
-            */
+                    /*
+                    * Nothing need to be done here really, just using this to illustrate the steps
+                    */
 
-            GetCompressedEntityFromStream();
+                    InputStreamGetCompressedEntity();
     }
 }
