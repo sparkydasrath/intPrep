@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
 
 namespace Backtracking.Tests
 {
@@ -10,8 +9,8 @@ namespace Backtracking.Tests
         public void ShouldPermuteWithRepeatedChars()
         {
             Permutations p = new Permutations();
-            p.PermuteWithRepeatedChars("aabc");
-            Console.ReadLine();
+            p.PermuteWithRepeatedCharsBase("aabc");
+            Assert.That(p.AllResults.Count, Is.EqualTo(12));
         }
     }
 }
