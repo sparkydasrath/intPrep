@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Utils;
 
 namespace Backtracking
 {
@@ -42,6 +43,39 @@ namespace Backtracking
 
         public List<string> AllResults { get; }
 
+        public void PermuteWithModifyInputDfs(string s)
+        {
+            List<string> output = new List<string>();
+            PermuteWithModifyInputDfsHelper(s, output);
+        }
+
+        public void PermuteWithModifyInputDfsHelper(string s, List<string> output)
+        {
+            // Console.WriteLine($"permute s={s}, output={ListUtils.PrintToString(output)}"); base case
+            if (s.Length == 0)
+            {
+                ListUtils.PrintToConsole(output);
+            }
+            else
+            {
+                for (int i = 0; i < s.Length; i++)
+                {
+                    // choose
+                    char c = s[i];
+                    output.Add(c.ToString());
+                    string nextChoices = s.Remove(i, 1);
+
+                    // explore
+                    PermuteWithModifyInputDfsHelper(nextChoices, output);
+
+                    // un-choose basically undo what you did in the choose section
+                    output.Remove(c.ToString());
+                    string result = s.Insert(i, c.ToString());
+                    // Console.WriteLine($"Inserting back result & s = {result}, {s}");
+                }
+            }
+        }
+
         public void PermuteWithRepeatedCharsBase(string input)
         {
             // assume that s is already sorted so we are getting aabc
@@ -61,6 +95,42 @@ namespace Backtracking
             result = new char[input.Length];
 
             PermuteWithRepeatedCharsDfs(charCountPair.Item1, charCountPair.Item2, result, 0);
+        }
+
+        public List<List<int>> PermuteWithVisitedArrayDfs(int[] nums)
+        {
+            /*
+        * 46. Permutations  https://leetcode.com/problems/permutations/
+        *
+        * Given a collection of distinct integers, return all possible permutations.
+
+           Example:
+
+           Input: [1,2,3]
+           Output:
+           [
+             [1,2,3],
+             [1,3,2],
+             [2,1,3],
+             [2,3,1],
+             [3,1,2],
+             [3,2,1]
+           ]
+
+               see also Backtracking.Permute for the first run of this
+                   NOTE: this approach was modifying the input with each recursion
+
+               in this version, I will aim to do DFS using the ideas from the graph section of marking each node/array slot as 'visited'
+
+            *
+        */
+            if (nums.Length == 0) return null;
+            List<List<int>> results = new List<List<int>>();
+            List<int> accumulator = new List<int>();
+            bool[] visited = new bool[nums.Length];
+            PermuteWithVisitedArrayDfsHelper(nums, results, accumulator, visited, 0);
+
+            return results;
         }
 
         private Tuple<char[], int[]> GetCharAndCountArrayFromMap(Dictionary<char, int> dict)
@@ -106,6 +176,35 @@ namespace Backtracking
                 // 6.When you return from the recursion, you restore the count and and then look for
                 // the next available character that has count > 0
                 counts[i]++;
+            }
+        }
+
+        private void PermuteWithVisitedArrayDfsHelper(int[] nums, List<List<int>> results, List<int> accumulator, bool[] visited, int recursionDepth)
+        {
+            if (accumulator.Count == nums.Length)
+            {
+                // checking for 0 because we are removing elements from this list
+                results.Add(accumulator);
+                return;
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (!visited[i])
+                {
+                    // choose an item/node in the list that has not been visited to begin exploring
+                    // from and add it to the result set
+                    accumulator.Add(nums[i]);
+                    visited[i] = true;
+                    // recurse
+                    PermuteWithVisitedArrayDfsHelper(nums, results, new List<int>(accumulator), visited, recursionDepth + 1);
+
+                    // un-choose
+                    accumulator.Remove(nums[i]);
+                    visited[i] = false;
+                    // go back up one level
+                    recursionDepth--;
+                }
             }
         }
 

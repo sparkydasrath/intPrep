@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Backtracking
 {
@@ -6,10 +7,13 @@ namespace Backtracking
     {
         private static void Main(string[] args)
         {
-            HeapsAlgorithm ha = new HeapsAlgorithm();
+            // Permutations perm = new Permutations(); perm.PermuteWithRepeatedCharsBase("abc"); Console.WriteLine(perm.AllResults);
 
-            int[] a = { 1, 1, 2, 3 };
-            ha.PermuteUsingHeapsAlgorithm(a, a.Length, a.Length);
+            Program p = new Program();
+
+            Combinations c = new Combinations();
+            List<List<int>> r = c.SubsetsDfs(new int[] { 1, 1, 3 });
+
             Console.ReadLine();
         }
     }

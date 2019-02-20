@@ -6,8 +6,7 @@ namespace General
     {
         private static void Main(string[] args)
         {
-            RecursionDecodeWays dw = new RecursionDecodeWays();
-            int res = dw.NumDecodings("226");
+            BacktrackingPermute.Permute("abc");
 
             Console.ReadLine();
         }

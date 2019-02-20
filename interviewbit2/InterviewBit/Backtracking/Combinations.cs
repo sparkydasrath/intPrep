@@ -70,6 +70,52 @@ namespace Backtracking
             CombineWithRepeatedCharsDfs(charCountPair.Item1, charCountPair.Item2, result, 0, 0);
         }
 
+        public List<List<int>> SubsetsDfs(int[] nums)
+        {
+            List<List<int>> results = new List<List<int>>();
+
+            if (nums.Length == 0) return results;
+
+            List<int> accumulator = new List<int>();
+            SubsetsDfsHelper(nums, 0, accumulator, results);
+
+            return results;
+        }
+
+        public void SubsetsDfsHelper(int[] input, int position, List<int> accumulator, List<List<int>> results)
+        {
+            /*
+                this guy has a good drawing (explanation is shit)
+                https://www.youtube.com/watch?v=rxitBSy8pZ0
+            */
+
+            if (position == input.Length)
+            {
+                List<int> res = new List<int>(accumulator);
+                results.Add(res);
+
+                StringBuilder sb = new StringBuilder();
+                foreach (int r in res)
+                {
+                    sb.Append(r);
+                }
+
+                AllResults.Add(sb.ToString());
+            }
+            else
+            {
+                // explore without item
+                SubsetsDfsHelper(input, position + 1, accumulator, results);
+
+                // explore with item
+                accumulator.Add(input[position]);
+                SubsetsDfsHelper(input, position + 1, accumulator, results);
+
+                // unchoose item
+                accumulator.RemoveAt(accumulator.Count - 1);
+            }
+        }
+
         /// <summary>
         /// </summary>
         /// <param name="input">

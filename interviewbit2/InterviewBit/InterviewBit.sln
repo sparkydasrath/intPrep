@@ -45,10 +45,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitManipulation", "BitManip
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitManipulation.Tests", "BitManipulation.Tests\BitManipulation.Tests.csproj", "{33AA1C2A-5FBB-4A68-A9D5-ED44F7A13228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permutations", "Permutations\Permutations.csproj", "{07E06914-8ACC-4975-AEA2-AA8C7E5F8333}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permutations.Tests", "Permutations.Tests\Permutations.Tests.csproj", "{A22CF3A7-5D3D-4842-BA4C-965B5C61F7F7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoPointers", "TwoPointers\TwoPointers.csproj", "{464CB2A4-3678-4DB1-871A-906BA40B6B06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoPointers.Tests", "TwoPointers.Tests\TwoPointers.Tests.csproj", "{D9138B8D-226D-4461-AB84-4B4D7202E207}"
@@ -163,14 +159,6 @@ Global
 		{33AA1C2A-5FBB-4A68-A9D5-ED44F7A13228}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33AA1C2A-5FBB-4A68-A9D5-ED44F7A13228}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33AA1C2A-5FBB-4A68-A9D5-ED44F7A13228}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07E06914-8ACC-4975-AEA2-AA8C7E5F8333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07E06914-8ACC-4975-AEA2-AA8C7E5F8333}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07E06914-8ACC-4975-AEA2-AA8C7E5F8333}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07E06914-8ACC-4975-AEA2-AA8C7E5F8333}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A22CF3A7-5D3D-4842-BA4C-965B5C61F7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A22CF3A7-5D3D-4842-BA4C-965B5C61F7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A22CF3A7-5D3D-4842-BA4C-965B5C61F7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A22CF3A7-5D3D-4842-BA4C-965B5C61F7F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{464CB2A4-3678-4DB1-871A-906BA40B6B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{464CB2A4-3678-4DB1-871A-906BA40B6B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{464CB2A4-3678-4DB1-871A-906BA40B6B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
