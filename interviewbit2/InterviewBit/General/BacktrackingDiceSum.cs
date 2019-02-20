@@ -17,10 +17,10 @@ namespace General
             int x = 1;
             Console.WriteLine(x);
             List<int> list = new List<int>();
-            DiceSumHelper(diceCount, desiredSum, ref list);
+            DiceSumHelper(diceCount, desiredSum, list);
         }
 
-        public static void DiceSumHelper(int diceCount, int desiredSum, ref List<int> output)
+        public static void DiceSumHelper(int diceCount, int desiredSum, List<int> output)
         {
             if (diceCount == 0)
             {
@@ -42,7 +42,7 @@ namespace General
                     output.Add(i);
 
                     // explore what could follow
-                    DiceSumHelper(diceCount - 1, desiredSum - i, ref output);
+                    DiceSumHelper(diceCount - 1, desiredSum - i, output);
 
                     // unchoose i
                     output.Remove(i);

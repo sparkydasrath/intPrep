@@ -69,6 +69,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook.Tests", "Facebook.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook", "Facebook\Facebook.csproj", "{2203A57A-AD29-47ED-9C50-AE972996AE9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backtracking", "Backtracking\Backtracking.csproj", "{F94D63ED-C58F-4BFC-BF4E-4D573290206C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backtracking.Tests", "Backtracking.Tests\Backtracking.Tests.csproj", "{7E11E806-68FF-4CF6-A00E-D13F14B2D742}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -207,6 +211,14 @@ Global
 		{2203A57A-AD29-47ED-9C50-AE972996AE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2203A57A-AD29-47ED-9C50-AE972996AE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2203A57A-AD29-47ED-9C50-AE972996AE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94D63ED-C58F-4BFC-BF4E-4D573290206C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94D63ED-C58F-4BFC-BF4E-4D573290206C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94D63ED-C58F-4BFC-BF4E-4D573290206C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94D63ED-C58F-4BFC-BF4E-4D573290206C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E11E806-68FF-4CF6-A00E-D13F14B2D742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E11E806-68FF-4CF6-A00E-D13F14B2D742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E11E806-68FF-4CF6-A00E-D13F14B2D742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E11E806-68FF-4CF6-A00E-D13F14B2D742}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
