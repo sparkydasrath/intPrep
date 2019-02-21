@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollapseSequencesTests.cs" />
     <Compile Include="CombinationsTests.cs" />
+    <Compile Include="DigitsSortedTests.cs" />
     <Compile Include="PermutationsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
