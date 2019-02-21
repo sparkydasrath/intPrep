@@ -46,6 +46,7 @@
     <Compile Include="CollapseSequences.cs" />
     <Compile Include="Combinations.cs" />
     <Compile Include="DigitsSorted.cs" />
+    <Compile Include="EvenDigits.cs" />
     <Compile Include="HeapsAlgorithm.cs" />
     <Compile Include="Permutations.cs" />
     <Compile Include="Program.cs" />

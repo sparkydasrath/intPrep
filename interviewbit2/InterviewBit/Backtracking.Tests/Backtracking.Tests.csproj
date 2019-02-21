@@ -50,6 +50,7 @@
     <Compile Include="CollapseSequencesTests.cs" />
     <Compile Include="CombinationsTests.cs" />
     <Compile Include="DigitsSortedTests.cs" />
+    <Compile Include="EvenDigitsTests.cs" />
     <Compile Include="PermutationsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
