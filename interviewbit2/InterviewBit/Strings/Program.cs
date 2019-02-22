@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Strings
 {
@@ -6,10 +7,13 @@ namespace Strings
     {
         private static void Main(string[] args)
         {
-            AddCommas ac = new AddCommas();
-            string rer = ac.AddCommasInCorrectPlaces("888888");
-            Console.WriteLine(rer);
+            HashSet<int> hs = new HashSet<int>
+            {
+                1,
+                1
+            };
 
+            Console.WriteLine(hs.Count);
             Console.ReadLine();
         }
     }

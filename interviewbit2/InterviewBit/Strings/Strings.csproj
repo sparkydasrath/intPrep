@@ -46,9 +46,12 @@
     <Compile Include="AddCommas.cs" />
     <Compile Include="DecodeStrings.cs" />
     <Compile Include="EditDistance.cs" />
+    <Compile Include="FlipGame.cs" />
     <Compile Include="KmpSubstringSearch.cs" />
     <Compile Include="LongestCommonPrefix.cs" />
     <Compile Include="LongestPalindromicSubstring.cs" />
+    <Compile Include="LongestSubstringWithAtMostKDistinctCharacters.cs" />
+    <Compile Include="LongestSubstringWithAtMostTwoDistinctCharacters.cs" />
     <Compile Include="LongestSubstringWithoutRepeatingChars.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

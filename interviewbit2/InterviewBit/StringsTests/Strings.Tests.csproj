@@ -49,9 +49,12 @@
   <ItemGroup>
     <Compile Include="DecodeStringsTests.cs" />
     <Compile Include="EditDistanceTests.cs" />
+    <Compile Include="FlipGameTests.cs" />
     <Compile Include="KmpSubstringSearchTests.cs" />
     <Compile Include="LongestCommonPrefixTests.cs" />
     <Compile Include="LongestPalindromicSubstringTests.cs" />
+    <Compile Include="LongestSubstringWithAtMostKDistinctCharactersTests.cs" />
+    <Compile Include="LongestSubstringWithAtMostTwoDistinctCharactersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader4IITests.cs" />
     <Compile Include="Reader4ITests.cs" />

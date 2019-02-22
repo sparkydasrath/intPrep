@@ -5,7 +5,7 @@ namespace General
     public class DpLongestCommonSubsequence
     {
         /*
-         * https://www.youtube.com/watch?v=43P0xZp3FU4&t=593s
+         * https://www.youtube.com/watch?v=43P0xZp3FU4
          * https://www.youtube.com/watch?v=NnD96abizww
          */
 

@@ -84,6 +84,10 @@ namespace TwoPointers
          * so total is 4
          */
 
+        /*
+         * UPDATE: This is a fucked up worded version of the LongestSubstringWithAtMostKDistinctCharacters problem
+         */
+
         public int SumOfFruits(Dictionary<int, int> baskets) => baskets.Values.Sum();
 
         public int TotalFruit(int[] tree)
