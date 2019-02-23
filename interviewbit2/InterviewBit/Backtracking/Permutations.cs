@@ -76,6 +76,11 @@ namespace Backtracking
             }
         }
 
+        public void PermuteWithoutModifyInputDfs(string s)
+        {
+            // see LetterPhoneNumbers in this project for an example
+        }
+
         public void PermuteWithRepeatedCharsBase(string input)
         {
             // assume that s is already sorted so we are getting aabc

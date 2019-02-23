@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace General
+namespace Backtracking
 {
-    public class BacktrackingLetterPhoneNumbers
+    public class LetterPhoneNumbers
     {
         private readonly string[] map;
 
-        public BacktrackingLetterPhoneNumbers() => map = new string[]
+        public LetterPhoneNumbers() => map = new string[]
             {
                "",
                "",
@@ -54,8 +54,9 @@ namespace General
                 results.Add(accumulator.ToString());
             else
             {
-                int index = digits[accumulator.Length] - '0';
-                string letters = map[digits[accumulator.Length] - '0'];
+                int accLength = accumulator.Length;
+                int index = digits[accLength] - '0';
+                string letters = map[index];
 
                 for (int i = 0; i < letters.Length; i++)
                 {

@@ -14,9 +14,9 @@ namespace Trees
          * Binary Search Tree
          */
 
-        private int i = 0;
+        private int btDeserialIndex = 0;
 
-        public TreeNode DeserializeBinarySearchTreeFromArray(int start, int end, List<int> array)
+        public TreeNode DeserializeBinarySearchTreeFromPreOrderArray(int start, int end, List<int> array)
         {
             /*
              * Base case: the current portion of the array is empty
@@ -24,27 +24,27 @@ namespace Trees
             if (start > end) return null;
 
             TreeNode root = new TreeNode(array[start]);
-            int pivot = DeserializeBinarySearchTreeFromArrayHelper(start, end, array, array[start]);
+            int pivot = DeserializeBinarySearchTreeFromPreOrderArrayHelper(start, end, array, array[start]);
 
-            root.Left = DeserializeBinarySearchTreeFromArray(start + 1, pivot - 1, array);
-            root.Right = DeserializeBinarySearchTreeFromArray(pivot, end, array);
+            root.Left = DeserializeBinarySearchTreeFromPreOrderArray(start + 1, pivot - 1, array);
+            root.Right = DeserializeBinarySearchTreeFromPreOrderArray(pivot, end, array);
 
             return root;
         }
 
-        public TreeNode DeserializeBinaryTreeFromArray(List<int> array)
+        public TreeNode DeserializeBinaryTreeFromPreOrderArray(List<int> array)
         {
-            if (i == array.Count || array[i] == -1)
+            if (btDeserialIndex == array.Count || array[btDeserialIndex] == -1)
             {
-                i += 1;
+                btDeserialIndex += 1;
                 return null;
             }
 
-            TreeNode root = new TreeNode(array[i]);
-            i++;
+            TreeNode root = new TreeNode(array[btDeserialIndex]);
+            btDeserialIndex++;
 
-            root.Left = DeserializeBinaryTreeFromArray(array);
-            root.Right = DeserializeBinaryTreeFromArray(array);
+            root.Left = DeserializeBinaryTreeFromPreOrderArray(array);
+            root.Right = DeserializeBinaryTreeFromPreOrderArray(array);
 
             return root;
         }
@@ -73,7 +73,7 @@ namespace Trees
             return root;
         }
 
-        private int DeserializeBinarySearchTreeFromArrayHelper(int start, int end, List<int> array, int rootValue)
+        private int DeserializeBinarySearchTreeFromPreOrderArrayHelper(int start, int end, List<int> array, int rootValue)
         {
             int j;
             for (j = start; j <= end; j++)

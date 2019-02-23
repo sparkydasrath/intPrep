@@ -47,6 +47,7 @@
     <Compile Include="DecodeStrings.cs" />
     <Compile Include="EditDistance.cs" />
     <Compile Include="FlipGame.cs" />
+    <Compile Include="IntegerToEnglishWords.cs" />
     <Compile Include="KmpSubstringSearch.cs" />
     <Compile Include="LongestCommonPrefix.cs" />
     <Compile Include="LongestPalindromicSubstring.cs" />

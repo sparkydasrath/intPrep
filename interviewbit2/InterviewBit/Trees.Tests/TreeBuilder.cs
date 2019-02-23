@@ -12,6 +12,38 @@
                              16  18
          */
 
+        public TreeNode BuildBinarySearchTree()
+        {
+            /*
+              https://www.ideserve.co.in/learn/serialize-deserialize-binary-search-tree
+              https://www.youtube.com/watch?v=H594EV9OuDI
+
+                        5
+                     /     \
+                    2        7
+                   / \      / \
+                  1   3    6   8
+                       \
+                        4
+             */
+
+            TreeNode root = new TreeNode(5)
+            {
+                Left = new TreeNode(2)
+                {
+                    Left = new TreeNode(1),
+                    Right = new TreeNode(3) { Right = new TreeNode(4) }
+                }
+            };
+
+            root.Right = new TreeNode(7)
+            {
+                Left = new TreeNode(6),
+                Right = new TreeNode(8)
+            };
+            return root;
+        }
+
         public TreeNode BuildBinaryTree()
         {
             // https://www.youtube.com/watch?v=elQcrJrfObg

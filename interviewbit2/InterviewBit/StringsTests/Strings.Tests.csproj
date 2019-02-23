@@ -50,6 +50,7 @@
     <Compile Include="DecodeStringsTests.cs" />
     <Compile Include="EditDistanceTests.cs" />
     <Compile Include="FlipGameTests.cs" />
+    <Compile Include="IntegerToEnglishWordsTests.cs" />
     <Compile Include="KmpSubstringSearchTests.cs" />
     <Compile Include="LongestCommonPrefixTests.cs" />
     <Compile Include="LongestPalindromicSubstringTests.cs" />
