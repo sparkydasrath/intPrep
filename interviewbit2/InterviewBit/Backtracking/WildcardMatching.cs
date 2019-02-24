@@ -93,6 +93,8 @@
                      // first row and col for base cases, so all indices are staggered
                      case 2: if s[i-1] == p[j-1] OR p[j-1] == '?'
                              T[i,j] = T[i-1, j-1] // get value from diagonal
+                             // that is because the chars either match or if the pattern is ? we can
+                             // use any char
 
                      case 3: if p[j-1] == '*'
                              T[i,j] = T[i-1, j] OR T[i, j-1] // get value from left or top
