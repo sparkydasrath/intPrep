@@ -5,6 +5,15 @@ namespace Strings.Tests
     [TestFixture]
     public class EditDistanceTests
     {
+        [TestCase("horse", "ros", ExpectedResult = 3)]
+        [TestCase("intention", "execution", ExpectedResult = 5)]
+        public int VerifyEditDistance(string s, string t)
+        {
+            EditDistance ed = new EditDistance();
+            int result = ed.EditDistanceOrLevenshteinDistance(s, t);
+            return result;
+        }
+
         [TestCase("cat", "dog", ExpectedResult = false)]
         [TestCase("cat", "cast", ExpectedResult = true)]
         [TestCase("cat", "at", ExpectedResult = true)]
