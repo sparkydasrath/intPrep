@@ -76,20 +76,20 @@ namespace Strings
             // use a sorted set as the sliding window
             int n = s.Length;
             HashSet<char> set = new HashSet<char>();
-            int ans = 0, i = 0, j = 0;
-            while (i < n && j < n)
+            int ans = 0, left = 0, right = 0;
+            while (left < n && right < n)
             {
-                // try to extend the range [i, j]
-                if (!set.Contains(s[j]))
+                // try to extend the range [left, right]
+                if (!set.Contains(s[right]))
                 {
-                    set.Add(s[j]);
-                    j++;
-                    ans = Math.Max(ans, j - i);
+                    set.Add(s[right]);
+                    right++;
+                    ans = Math.Max(ans, right - left);
                 }
                 else
                 {
-                    set.Remove(s[i]);
-                    i++;
+                    set.Remove(s[left]);
+                    left++;
                 }
             }
             return ans;

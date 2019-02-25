@@ -15,6 +15,9 @@ namespace General.Tests
 
             int result = dw.DecodeDp("12321");
             Assert.That(result, Is.EqualTo(6));
+
+            int result3 = dw.DecodeDp2("226");
+            Assert.That(result3, Is.EqualTo(3));
         }
     }
 }

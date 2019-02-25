@@ -91,7 +91,8 @@ namespace Strings
             while (head < s.Length)
             {
                 char currentChar = s[head];
-                // keep adding until we exceed the threshold
+                // keep adding until we exceed the threshold note we are storing the index of the
+                // char rather than a count (ex of count approach https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/sliding-window-algorithm-template-to-solve-all-the-leetcode-substring-search-problem)
                 charIndexMap[currentChar] = head;
                 head++;
 

@@ -41,6 +41,13 @@ namespace Strings
             LC: solution https://leetcode.com/articles/edit-distance/#
             Another  https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
+            vivek: https://www.youtube.com/watch?v=b6AGUjqIPsA
+            tushar: https://www.youtube.com/watch?v=We3YDTzNXEk
+
+            hamming distance:
+                both words have to be the same length
+                only allowed substitutions (min# of substitutions needed to turn string 1 to string 2)
+
         */
 
             // This is the GENERALIZED way of doing it via dp
@@ -70,9 +77,9 @@ namespace Strings
                     if (charInS == charInT) cost = 0;
                     else cost = 1;
 
-                    int left = dp[row, col - 1];
-                    int top = dp[row - 1, col];
-                    int diag = dp[row - 1, col - 1];
+                    int left = dp[row, col - 1]; // left to right = insert
+                    int top = dp[row - 1, col]; // top to next row = remove/delete
+                    int diag = dp[row - 1, col - 1]; // replace
 
                     dp[row, col] = cost + MinOfThree(left, top, diag);
                 }

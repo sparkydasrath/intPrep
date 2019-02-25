@@ -7,6 +7,7 @@ namespace Strings.Tests
     {
         [TestCase("horse", "ros", ExpectedResult = 3)]
         [TestCase("intention", "execution", ExpectedResult = 5)]
+        [TestCase("zoologicoarchaeologist", "zoogeologist", ExpectedResult = 10)]
         public int VerifyEditDistance(string s, string t)
         {
             EditDistance ed = new EditDistance();
