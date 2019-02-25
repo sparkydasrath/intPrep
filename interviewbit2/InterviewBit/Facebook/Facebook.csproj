@@ -46,6 +46,7 @@
     <Compile Include="BasicCalculator2.cs" />
     <Compile Include="FindAllAnagramsInString.cs" />
     <Compile Include="MinimumWindowSubstring.cs" />
+    <Compile Include="ProductOfArrayExceptSelf.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

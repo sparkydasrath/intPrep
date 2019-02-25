@@ -46,6 +46,7 @@
     <Compile Include="GraphCourseSchedule.cs" />
     <Compile Include="KEmptySlots.cs" />
     <Compile Include="MaxConsecutiveOnes.cs" />
+    <Compile Include="MaximumProductSubarray.cs" />
     <Compile Include="MergeKSortedLists.cs" />
     <Compile Include="NextClosestTime.cs" />
     <Compile Include="Program.cs" />

@@ -51,6 +51,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="FindAllAnagramsInStringTests.cs" />
     <Compile Include="MinimumWindowSubstringTests.cs" />
+    <Compile Include="ProductOfArrayExceptSelfTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

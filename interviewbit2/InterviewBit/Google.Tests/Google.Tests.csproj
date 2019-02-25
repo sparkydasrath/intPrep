@@ -50,6 +50,7 @@
     <Compile Include="GraphCourseScheduleTests.cs" />
     <Compile Include="KEmptySlotsTests.cs" />
     <Compile Include="MaxConsecutiveOnesTests.cs" />
+    <Compile Include="MaximumProductSubarrayTests.cs" />
     <Compile Include="MergeKSortedListsTests.cs" />
     <Compile Include="NextClosestTimeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
