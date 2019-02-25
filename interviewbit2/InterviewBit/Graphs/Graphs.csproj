@@ -57,6 +57,7 @@
     <Compile Include="NodePosition.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CourseSchedule2.cs" />
     <Compile Include="TwoColorAndBipartite.cs" />
     <Compile Include="UnionFind.cs" />
   </ItemGroup>
