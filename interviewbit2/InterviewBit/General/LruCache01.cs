@@ -34,7 +34,7 @@ namespace General
             // create new linked list node
             LinkedListNode<CacheItem<TK, TV>> lin = new LinkedListNode<CacheItem<TK, TV>>(ci);
             // append to end of linked list
-            linkedList.AddLast(lin);
+            linkedList.AddFirst(lin);
             dictionary.Add(ci.Key, lin);
         }
 
@@ -47,17 +47,17 @@ namespace General
 
                 // update the list and move this node to the back of the list
                 linkedList.Remove(node);
-                linkedList.AddLast(node);
+                linkedList.AddFirst(node);
                 return value;
             }
 
             return default(TV);
         }
 
-        private LinkedListNode<CacheItem<TK, TV>> GetNodeToUnCache() => linkedList.First;
+        private LinkedListNode<CacheItem<TK, TV>> GetNodeToUnCache() => linkedList.Last;
 
         private void RemoveFromCache(TK key) => dictionary.Remove(key);
 
-        private void RemoveNodeFromList() => linkedList.RemoveFirst();
+        private void RemoveNodeFromList() => linkedList.RemoveLast();
     }
 }

@@ -184,7 +184,7 @@ namespace Backtracking
             }
         }
 
-        private void PermuteWithVisitedArrayDfsHelper(int[] nums, List<List<int>> results, List<int> accumulator, bool[] visited, int recursionDepth)
+        private void PermuteWithVisitedArrayDfsHelper(int[] nums, List<List<int>> results, List<int> accumulator, bool[] visited, int depth)
         {
             if (accumulator.Count == nums.Length)
             {
@@ -202,13 +202,13 @@ namespace Backtracking
                     accumulator.Add(nums[i]);
                     visited[i] = true;
                     // recurse
-                    PermuteWithVisitedArrayDfsHelper(nums, results, new List<int>(accumulator), visited, recursionDepth + 1);
+                    PermuteWithVisitedArrayDfsHelper(nums, results, new List<int>(accumulator), visited, depth + 1);
 
                     // un-choose
                     accumulator.Remove(nums[i]);
                     visited[i] = false;
                     // go back up one level
-                    recursionDepth--;
+                    depth--;
                 }
             }
         }
