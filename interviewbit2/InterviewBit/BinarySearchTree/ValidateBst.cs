@@ -8,6 +8,9 @@
          *
          */
 
+        private TreeNode prev = null;
+        private bool valid = true;
+
         public bool IsBstValid(TreeNode root) => IsBstValidHelper(root, long.MinValue, long.MaxValue);
 
         public bool IsBstValidHelper(TreeNode root, long min, long max)
@@ -29,6 +32,34 @@
 
             return IsBstValidHelper(root, min, root.Val) &&
                    IsBstValidHelper(root, root.Val, max);
+        }
+
+        public bool ISValid(TreeNode root)
+        {
+            IsValidHelper(root);
+            return valid;
+        }
+
+        private void IsValidHelper(TreeNode root)
+        {
+            if (root == null) return;
+            if (valid == false) return;
+
+            IsValidHelper(root.Left);
+            if (prev != null && prev.Val > root.Val)
+            {
+                valid = false;
+                return;
+            }
+
+            prev = root;
+
+            /*
+
+            IsValidHelper(root.Right);*/
+
+            if (valid)
+                IsValidHelper(root.Right);
         }
     }
 }

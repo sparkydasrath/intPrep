@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepeatedStringMatch.cs" />
     <Compile Include="SubstringWithConcatenationOfAllWords.cs" />
+    <Compile Include="SummaryRanges.cs" />
     <Compile Include="UTF8Validation.cs" />
     <Compile Include="WordSearch.cs" />
   </ItemGroup>
