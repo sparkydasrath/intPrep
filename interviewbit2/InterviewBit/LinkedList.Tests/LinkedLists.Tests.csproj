@@ -50,6 +50,7 @@
     <Compile Include="IntersectionOfTwoLinkedListsTests.cs" />
     <Compile Include="MergeTwoSortedListsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoveElementsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
