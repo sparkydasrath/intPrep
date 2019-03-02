@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Backtracking
 {
@@ -46,8 +45,7 @@ namespace Backtracking
         public int NumDecodings2(string s)
         {
             if (string.IsNullOrWhiteSpace(s)) return 0;
-            // NumDecodingsDfs2(s, new StringBuilder());
-            NumDecodingsDfs3(s, "");
+            NumDecodingsDfs2(s, new List<string>());
             return numDecodings;
         }
 
@@ -92,7 +90,7 @@ namespace Backtracking
             return numWays;
         }
 
-        private void NumDecodingsDfs2(string s, StringBuilder results)
+        private void NumDecodingsDfs2(string s, List<string> results)
         {
             /* base case, keep removing from the string based on number of chars chosen
                 our branching condition is to
@@ -106,14 +104,14 @@ namespace Backtracking
             {
                 // we hit the end of the recursion stack
                 numDecodings += 1;
-                decodings.Add(results.ToString());
+                decodings.Add(string.Join(",", results));
                 return;
             }
 
             // as long as we can take one char at a time, lets try to take it
-            results.Append(s.Substring(0, 1) + " ");
-            NumDecodingsDfs2(s.Substring(1), results);
-            results.Remove(results.Length - 1, 1);
+            results.Add(s.Substring(0, 1));
+            NumDecodingsDfs2(s.Substring(1), new List<string>(results));
+            results.RemoveAt(results.Count - 1);
 
             if (s.Length >= 2)
             {
@@ -124,9 +122,9 @@ namespace Backtracking
                 int twoCharDecoded = Convert.ToInt32(temp);
                 if (twoCharDecoded >= 10 && twoCharDecoded <= 26)
                 {
-                    results.Append(s.Substring(0, 2) + " ");
+                    results.Add(s.Substring(0, 2));
                     NumDecodingsDfs2(s.Substring(2), results);
-                    results.Remove(results.Length - 1, 1);
+                    results.RemoveAt(results.Count - 1);
                 }
             }
         }

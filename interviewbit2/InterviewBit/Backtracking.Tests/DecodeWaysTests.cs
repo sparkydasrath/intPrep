@@ -10,7 +10,7 @@ namespace Backtracking.Tests
         {
             DecodeWays dw = new DecodeWays();
 
-            int result3 = dw.NumDecodings3("226");
+            int result3 = dw.NumDecodings2("226");
             Assert.That(result3, Is.EqualTo(3));
 
             int result4 = dw.NumDecodings3("226");
