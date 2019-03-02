@@ -61,8 +61,7 @@
     <Compile Include="BacktrackingNQueensProblem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BacktrackingGenerateParentheses.cs" />
-    <Compile Include="RecursionDecodeWays.cs" />
+    <Compile Include="DpDecodeWays.cs" />
     <Compile Include="RecursionPowerOfNumbers.cs" />
     <Compile Include="BacktrackingDiceSum.cs" />
     <Compile Include="BacktrackingEscapeMaze.cs" />

@@ -1,15 +1,15 @@
 ﻿using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 namespace General.Tests
 {
     [TestFixture]
-    public class RecursionDecodeWaysTests
+    public class DecodeWaysTests
     {
         [Test]
-        public void ShouldReturnNumberOfWaysToDecodeMessage()
+        public void ShouldReturnNumberOfWaysToDecodeMessageDp()
         {
-            RecursionDecodeWays dw = new RecursionDecodeWays();
+            DpDecodeWays dw = new DpDecodeWays();
+
             int result1 = dw.DecodeDp("226");
             Assert.That(result1, Is.EqualTo(3));
 

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace General
 {
-    public class RecursionDecodeWays
+    public class DpDecodeWays
     {
         public int DecodeDp(string s)
         {
@@ -90,48 +90,6 @@ namespace General
             }
 
             return dp.Last();
-        }
-
-        public int NumDecodings(string s)
-        {
-            if (string.IsNullOrWhiteSpace(s)) return 0;
-            int result;
-            result = NumDecodingsDfs(s, 0);
-            return result;
-        }
-
-        private int NumDecodingsDfs(string s, int pos)
-        {
-            if (pos < s.Length && s[pos] == '0') return 0;
-
-            if (pos == s.Length)
-            {
-                // we have reached the leaf node of the tree
-                return 1;
-            }
-
-            /* if we are not at the end, we need to branch and
-                choose either 1 char or 2 chars
-             */
-
-            // choose 1 char
-            int numWays = NumDecodingsDfs(s, pos + 1);
-
-            int decodedValue = 0;
-
-            /* check if we can have enough chars left to select two at the same time
-                that is, when pos + 2 does not exceed the length of the string
-             */
-            if (pos + 1 < s.Length)
-            {
-                string ss = s.Substring(pos, pos + 1);
-                decodedValue = Convert.ToInt32(ss);
-            }
-
-            if (decodedValue >= 10 && decodedValue <= 26)
-                numWays += NumDecodingsDfs(s, pos + 2);
-
-            return numWays;
         }
     }
 }

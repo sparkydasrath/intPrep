@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenerateParenthesesTests.cs" />
     <Compile Include="CollapseSequencesTests.cs" />
     <Compile Include="CombinationsTests.cs" />
+    <Compile Include="DecodeWaysTests.cs" />
     <Compile Include="DigitsSortedTests.cs" />
     <Compile Include="EvenDigitsTests.cs" />
     <Compile Include="FlipGame2Tests.cs" />

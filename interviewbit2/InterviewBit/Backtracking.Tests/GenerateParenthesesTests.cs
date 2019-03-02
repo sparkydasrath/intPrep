@@ -1,17 +1,16 @@
 ﻿using NUnit.Framework;
-using NUnit.Framework.Internal;
 using System.Collections.Generic;
 
-namespace General.Tests
+namespace Backtracking.Tests
 {
     [TestFixture]
-    public class BacktrackingGenerateParenthesesTests
+    public class GenerateParenthesesTests
     {
         [Test]
         public void ShouldGenerateMatchingParenthesesPairs()
         {
-            BacktrackingGenerateParentheses backtrackingGenerateParentheses = new BacktrackingGenerateParentheses();
-            List<string> result = backtrackingGenerateParentheses.GenerateParenthesis(3);
+            GenerateParentheses generateParentheses = new GenerateParentheses();
+            List<string> result = generateParentheses.GenerateParenthesis(3);
             List<string> expected = new List<string>
             {
                 "((()))",

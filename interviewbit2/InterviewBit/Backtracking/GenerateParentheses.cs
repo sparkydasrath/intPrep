@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace General
+namespace Backtracking
 {
-    public class BacktrackingGenerateParentheses
+    public class GenerateParentheses
     {
         /*
          https://www.geeksforgeeks.org/applications-of-catalan-numbers/
