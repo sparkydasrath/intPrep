@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConstructBtFromPreorderAndInorderTests.cs" />
     <Compile Include="ConstructTreesTests.cs" />
     <Compile Include="GetHeightOfTreeTests.cs" />
     <Compile Include="PathSumTests.cs" />

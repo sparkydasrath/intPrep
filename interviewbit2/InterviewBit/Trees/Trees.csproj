@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckBalanced.cs" />
+    <Compile Include="ConstructBTFromPreorderAndInorder.cs" />
     <Compile Include="ConstructTrees.cs" />
     <Compile Include="Deserialization.cs" />
     <Compile Include="HeightOfTree.cs" />

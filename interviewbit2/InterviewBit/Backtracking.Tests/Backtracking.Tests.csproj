@@ -55,6 +55,7 @@
     <Compile Include="EvenDigitsTests.cs" />
     <Compile Include="FlipGame2Tests.cs" />
     <Compile Include="LetterPhoneNumbersTests.cs" />
+    <Compile Include="NQueensTests.cs" />
     <Compile Include="PermutationsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegularExpressionMatchingTests.cs" />

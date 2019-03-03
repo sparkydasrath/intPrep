@@ -52,12 +52,14 @@
     <Compile Include="EvenDigits.cs" />
     <Compile Include="FlipGame2.cs" />
     <Compile Include="HeapsAlgorithm.cs" />
+    <Compile Include="NQueens.cs" />
     <Compile Include="Permutations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegularExpressionMatching.cs" />
     <Compile Include="RemoveInvalidParentheses.cs" />
     <Compile Include="RestoreIpAddresses.cs" />
+    <Compile Include="SudokuSolver.cs" />
     <Compile Include="WildcardMatching.cs" />
   </ItemGroup>
   <ItemGroup>
