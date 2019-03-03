@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CombinationSum.cs" />
     <Compile Include="GenerateParentheses.cs" />
     <Compile Include="DecodeWays.cs" />
     <Compile Include="LetterPhoneNumbers.cs" />

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CombinationSumTests.cs" />
     <Compile Include="GenerateParenthesesTests.cs" />
     <Compile Include="CollapseSequencesTests.cs" />
     <Compile Include="CombinationsTests.cs" />
