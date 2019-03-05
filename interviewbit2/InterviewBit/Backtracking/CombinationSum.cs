@@ -128,7 +128,6 @@ namespace Backtracking
             {
                 results.Add(accumulator);
                 return;
-                ;
             }
 
             for (int i = start; i < candidates.Length; i++)

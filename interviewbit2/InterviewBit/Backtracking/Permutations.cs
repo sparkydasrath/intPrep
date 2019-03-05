@@ -34,14 +34,45 @@ namespace Backtracking
         private readonly Dictionary<char, int> map;
         private Tuple<char[], int[]> charCountPair;
         private char[] result;
+        private IList<IList<int>> results;
 
         public Permutations()
         {
             map = new Dictionary<char, int>();
             AllResults = new List<string>();
+            results = new List<IList<int>>();
         }
 
         public List<string> AllResults { get; }
+
+        public IList<IList<int>> PermuteUnique(int[] nums)
+        {
+            /*
+             47. Permutations II
+            Medium
+
+            Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+
+            Example:
+
+            Input: [1,1,2]
+            Output:
+            [
+              [1,1,2],
+              [1,2,1],
+              [2,1,1]
+            ]
+
+             */
+            results.Clear();
+            List<int> accumulator = new List<int>();
+            bool[] visited = new bool[nums.Length];
+
+            // sort
+            Array.Sort(nums);
+            PermuteUniqueHelper(nums, accumulator, visited);
+            return results;
+        }
 
         public void PermuteWithModifyInputDfs(string s)
         {
@@ -102,7 +133,7 @@ namespace Backtracking
             PermuteWithRepeatedCharsDfs(charCountPair.Item1, charCountPair.Item2, result, 0);
         }
 
-        public List<List<int>> PermuteWithVisitedArrayDfs(int[] nums)
+        public IList<IList<int>> PermuteWithVisitedArrayDfs(int[] nums)
         {
             /*
         * 46. Permutations  https://leetcode.com/problems/permutations/
@@ -130,10 +161,10 @@ namespace Backtracking
             *
         */
             if (nums.Length == 0) return null;
-            List<List<int>> results = new List<List<int>>();
             List<int> accumulator = new List<int>();
             bool[] visited = new bool[nums.Length];
-            PermuteWithVisitedArrayDfsHelper(nums, results, accumulator, visited, 0);
+            results.Clear();
+            PermuteWithVisitedArrayDfsHelper(nums, accumulator, visited);
 
             return results;
         }
@@ -152,6 +183,35 @@ namespace Backtracking
             }
 
             return new Tuple<char[], int[]>(str, counts);
+        }
+
+        private void PermuteUniqueHelper(int[] nums, List<int> accumulator, bool[] visited)
+        {
+            if (accumulator.Count == nums.Length)
+            {
+                results.Add(new List<int>(accumulator));
+                Console.WriteLine(string.Join(" ", accumulator));
+                return;
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                /*
+                  The main difference between the regular perm and this one is this additional
+                  If the current element == previous element and not visited, skip it
+                 */
+
+                if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
+
+                if (!visited[i])
+                {
+                    accumulator.Add(nums[i]);
+                    visited[i] = true;
+                    PermuteUniqueHelper(nums, accumulator, visited);
+                    accumulator.RemoveAt(accumulator.Count - 1);
+                    visited[i] = false;
+                }
+            }
         }
 
         private void PermuteWithRepeatedCharsDfs(char[] input, int[] counts, char[] output, int depth)
@@ -184,11 +244,12 @@ namespace Backtracking
             }
         }
 
-        private void PermuteWithVisitedArrayDfsHelper(int[] nums, List<List<int>> results, List<int> accumulator, bool[] visited, int depth)
+        private void PermuteWithVisitedArrayDfsHelper(int[] nums, List<int> accumulator, bool[] visited)
         {
             if (accumulator.Count == nums.Length)
             {
-                // checking for 0 because we are removing elements from this list
+                // check if the accumulator is the same as the input length - that means we hit the
+                // leaf node so time to end this recursion path and explore others
                 results.Add(accumulator);
                 return;
             }
@@ -202,13 +263,11 @@ namespace Backtracking
                     accumulator.Add(nums[i]);
                     visited[i] = true;
                     // recurse
-                    PermuteWithVisitedArrayDfsHelper(nums, results, new List<int>(accumulator), visited, depth + 1);
+                    PermuteWithVisitedArrayDfsHelper(nums, new List<int>(accumulator), visited);
 
                     // un-choose
                     accumulator.Remove(nums[i]);
                     visited[i] = false;
-                    // go back up one level
-                    depth--;
                 }
             }
         }
@@ -219,6 +278,41 @@ namespace Backtracking
             foreach (char c in res)
                 sb.Append(c);
             AllResults.Add(sb.ToString());
+        }
+    }
+
+    public class Permute2
+    {
+        // PERMUTE ALWAYS needs a visited array
+        private IList<IList<int>> results = new List<IList<int>>();
+
+        public IList<IList<int>> Permute(int[] nums)
+        {
+            List<int> accumulator = new List<int>();
+            PermuteHelper(nums, accumulator);
+            foreach (IList<int> result in results)
+            {
+                Console.WriteLine(string.Join(" ", result));
+            }
+            return results;
+        }
+
+        public void PermuteHelper(int[] nums, List<int> accumulator)
+        {
+            if (accumulator.Count == nums.Length)
+            {
+                results.Add(accumulator);
+                return;
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                accumulator.Add(nums[i]);
+
+                PermuteHelper(nums, new List<int>(accumulator));
+
+                accumulator.RemoveAt(accumulator.Count - 1);
+            }
         }
     }
 }
