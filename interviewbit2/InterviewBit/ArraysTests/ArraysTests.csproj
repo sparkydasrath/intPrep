@@ -55,6 +55,7 @@
     <Compile Include="MeetingRoomsTests.cs" />
     <Compile Include="MergeIntervalsTests.cs" />
     <Compile Include="MinArrowsToBurstBalloonsTests.cs" />
+    <Compile Include="NextPermutationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RotateArrayTests.cs" />
     <Compile Include="SpiralMatrixTests.cs" />

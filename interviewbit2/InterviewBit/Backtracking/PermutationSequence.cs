@@ -38,7 +38,7 @@ namespace Backtracking
         Output: "2314"
          */
 
-        private IList<IList<int>> results = new List<IList<int>>();
+        private readonly IList<IList<int>> results = new List<IList<int>>();
 
         public string GetPermutation(int n, int k)
         {
@@ -58,7 +58,6 @@ namespace Backtracking
             if (accumulator.Count == nums.Length)
             {
                 results.Add(new List<int>(accumulator));
-
                 return;
             }
 

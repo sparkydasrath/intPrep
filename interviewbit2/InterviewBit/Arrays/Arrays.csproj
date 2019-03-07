@@ -54,6 +54,7 @@
     <Compile Include="MergeIntervals.cs" />
     <Compile Include="MergeIntervalsBetter.cs" />
     <Compile Include="MinArrowsToBurstBalloons.cs" />
+    <Compile Include="NextPermutation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RotateArray.cs" />
