@@ -58,6 +58,7 @@
     <Compile Include="SymmetryAndMirrorTrees.cs" />
     <Compile Include="TreeNode.cs" />
     <Compile Include="TreeTraversal.cs" />
+    <Compile Include="TriePrefixTree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

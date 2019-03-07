@@ -57,6 +57,7 @@
     <Compile Include="SymmetricTreeTests.cs" />
     <Compile Include="TreeBuilder.cs" />
     <Compile Include="TreeTraversalTests.cs" />
+    <Compile Include="TriePrefixTreeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
