@@ -12,7 +12,7 @@ namespace ArraysTests
         {
             int[] nums = { 3, 2, 1 };
             NextPermutation np = new NextPermutation();
-            np.NextPerm_TimeoutExceeded(nums);
+            np.NextPerm(nums);
             int[] expected = { 1, 2, 3 };
             CollectionAssert.AreEqual(nums, expected);
         }
@@ -22,7 +22,7 @@ namespace ArraysTests
         {
             int[] nums = { 1, 2, 3 };
             NextPermutation np = new NextPermutation();
-            np.NextPerm_TimeoutExceeded(nums);
+            np.NextPerm(nums);
             int[] expected = { 1, 3, 2 };
             CollectionAssert.AreEqual(nums, expected);
         }

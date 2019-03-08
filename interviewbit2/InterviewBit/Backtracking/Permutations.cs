@@ -251,6 +251,7 @@ namespace Backtracking
                 // check if the accumulator is the same as the input length - that means we hit the
                 // leaf node so time to end this recursion path and explore others
                 results.Add(accumulator);
+                Console.WriteLine(string.Join(" ", accumulator));
                 return;
             }
 
@@ -283,7 +284,7 @@ namespace Backtracking
 
     public class Permute2
     {
-        // PERMUTE ALWAYS needs a visited array
+        // PERMUTE ALWAYS needs a visited array - this implemention is wrong
         private IList<IList<int>> results = new List<IList<int>>();
 
         public IList<IList<int>> Permute(int[] nums)

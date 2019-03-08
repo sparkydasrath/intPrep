@@ -34,8 +34,8 @@ namespace Backtracking.Tests
         public void ShouldPermuteWithVisitedArray()
         {
             Permutations p = new Permutations();
-            IList<IList<int>> result = p.PermuteWithVisitedArrayDfs(new[] { 1, 2, 3 });
-            Assert.That(result.Count, Is.EqualTo(6));
+            IList<IList<int>> result = p.PermuteWithVisitedArrayDfs(new[] { 1, 2, 3, 4 });
+            Assert.That(result.Count, Is.EqualTo(24));
         }
     }
 }

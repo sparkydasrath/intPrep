@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Arrays
+﻿namespace Arrays
 {
     public class NextPermutation
     {
@@ -24,43 +22,14 @@ namespace Arrays
 
         public void NextPerm(int[] nums)
         {
-            // LC solution: https://leetcode.com/articles/next-permutation/#
             if (nums.Length == 1) return;
 
-            // check if nums[i+1] > nums[i] and swap
-
-            int i = nums.Length - 1;
-            int j = i - 1;
-
-            bool swapped = false;
-            while (j >= 0)
-            {
-                if (nums[i] > nums[j])
-                {
-                    Swap(nums, i, j);
-                    swapped = true;
-                    break;
-                }
-
-                i--;
-                j = i - 1;
-            }
-
-            if (!swapped)
-            {
-                // means the array is sorted in descending order
-                Array.Sort(nums);
-            }
-        }
-
-        public void NextPerm_TimeoutExceeded(int[] nums)
-        {
             if (nums.Length == 1) return;
             /*
 
                 nums = 1 2 3 6 5 8
                                ^
-                               i points here so that i + 1 will point at nums.lenght -1
+                               i points here so that i + 1 will point at nums.length -1
              */
 
             int i = nums.Length - 2;

@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
-namespace Backtracking
+namespace Arrays
 {
     public class PermutationSequence
     {
@@ -44,6 +45,39 @@ namespace Backtracking
 
         public string GetPermutation(int n, int k)
         {
+            // best explanation https://leetcode.com/problems/permutation-sequence/discuss/22507/%22Explain-like-I'm-five%22-Java-Solution-in-O(n)
+
+            List<int> nums = Enumerable.Range(1, n).ToList();
+
+            int[] factorial = new int[n + 1];
+            StringBuilder sb = new StringBuilder();
+
+            // create an array of factorial lookup
+            int sum = 1;
+            factorial[0] = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                sum *= i;
+                factorial[i] = sum;
+                // factorial[] = {1, 1, 2, 6, 24, ... n!}
+            }
+
+            // make k one less to deal with zero indexing of lists
+            k--;
+
+            for (int i = 1; i <= n; i++)
+            {
+                int index = k / factorial[n - i];
+                sb.Append(nums[index]);
+                nums.RemoveAt(index);
+                k -= index * factorial[n - i];
+            }
+
+            return string.Empty;
+        }
+
+        public string GetPermutation_TimelimitExceeded(int n, int k)
+        {
             bool[] visited = new bool[n];
             List<int> accumulator = new List<int>();
             int[] nums = Enumerable.Range(1, n).ToArray();
@@ -72,7 +106,6 @@ namespace Backtracking
                     GetPermutationHelper(nums, new List<int>(accumulator), visited);
                     accumulator.RemoveAt(accumulator.Count - 1);
                     visited[i] = false;
-                    // if (kthCount == k) return;
                 }
             }
         }
