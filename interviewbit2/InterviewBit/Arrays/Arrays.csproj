@@ -46,6 +46,8 @@
     <Compile Include="ArrayPartition.cs" />
     <Compile Include="ContainerWithMostWater.cs" />
     <Compile Include="DoArrayProblems.cs" />
+    <Compile Include="FindTheCelebrity.cs" />
+    <Compile Include="FindTheTownJudge.cs" />
     <Compile Include="FlippingAnImage.cs" />
     <Compile Include="Interval.cs" />
     <Compile Include="LongestIncreasingSequence.cs" />

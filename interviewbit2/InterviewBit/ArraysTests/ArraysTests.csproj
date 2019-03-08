@@ -50,6 +50,7 @@
     <Compile Include="ArrayPartitionTests.cs" />
     <Compile Include="ContainerWithMostWaterTests.cs" />
     <Compile Include="FindElementInRotatedSortedArrayTests.cs" />
+    <Compile Include="FindTheTownJudgeTests.cs" />
     <Compile Include="FlippingAnImageTests.cs" />
     <Compile Include="LongestIncreasingSequenceTests.cs" />
     <Compile Include="MeetingRoomsTests.cs" />
