@@ -10,7 +10,7 @@ namespace ArraysTests
         public void ShouldGetPermutationSequence()
         {
             PermutationSequence ps = new PermutationSequence();
-            string result = ps.GetPermutation_TimelimitExceeded(4, 14);
+            string result = ps.GetPermutation(4, 14);
             Assert.That(result, Is.EqualTo("3142"));
         }
 

@@ -1,35 +1,40 @@
-﻿using System.Runtime.Remoting.Messaging;
+﻿using System.Collections.Generic;
 
 namespace Google
 {
-    public class WordSearch
+    public class WordSearch2BruteForce
     {
         /*
-         * 79. Word Search https://leetcode.com/problems/word-search/
-        Medium
+         212. Word Search II https://leetcode.com/problems/word-search-ii/
+        Hard
 
-        Given a 2D board and a word, find if the word exists in the grid.
+        Given a 2D board and a list of words from the dictionary, find all words in the board.
 
-        The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+        Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
 
         Example:
 
-        board =
+        Input:
+        words = ["oath","pea","eat","rain"] and board =
         [
-          ['A','B','C','E'],
-          ['S','F','C','S'],
-          ['A','D','E','E']
+          ['o','a','a','n'],
+          ['e','t','a','e'],
+          ['i','h','k','r'],
+          ['i','f','l','v']
         ]
 
-        Given word = "ABCCED", return true.
-        Given word = "SEE", return true.
-        Given word = "ABCB", return false.
+        Output: ["eat","oath"]
 
-
+        Note:
+        You may assume that all inputs are consist of lowercase letters a-z.
          */
-        int rows = 0;
-        int cols = 0;
+
+        private int cols = 0;
+        private IList<string> results = new List<string>();
+        private List<string> resultsTemp = new List<string>();
+        private int rows = 0;
         private bool[,] visited;
+
         public bool Exist(char[,] board, string word)
         {
             // this is dfs with choose, explore, unchoose pattern
@@ -47,6 +52,23 @@ namespace Google
             }
 
             return false;
+        }
+
+        public IList<string> FindWords(char[,] board, string[] words)
+        {
+            foreach (string word in words)
+            {
+                if (Exist(board, word)) resultsTemp.Add(word);
+            }
+
+            resultsTemp.Sort();
+
+            foreach (string w in resultsTemp)
+            {
+                results.Add(w);
+            }
+
+            return results;
         }
 
         private bool DfsExists(char[,] board, int row, int col, string word, int wordIndex)

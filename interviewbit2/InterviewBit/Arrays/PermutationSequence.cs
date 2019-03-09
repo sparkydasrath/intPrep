@@ -53,12 +53,11 @@ namespace Arrays
             StringBuilder sb = new StringBuilder();
 
             // create an array of factorial lookup
-            int sum = 1;
             factorial[0] = 1;
-            for (int i = 1; i <= n; i++)
+            factorial[1] = 1;
+            for (int i = 2; i <= n; i++)
             {
-                sum *= i;
-                factorial[i] = sum;
+                factorial[i] = factorial[i - 1] * i;
                 // factorial[] = {1, 1, 2, 6, 24, ... n!}
             }
 
@@ -73,7 +72,7 @@ namespace Arrays
                 k -= index * factorial[n - i];
             }
 
-            return string.Empty;
+            return sb.ToString();
         }
 
         public string GetPermutation_TimelimitExceeded(int n, int k)

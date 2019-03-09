@@ -77,7 +77,7 @@ namespace Backtracking
 
             if (ip.Length >= 2)
             {
-                accumulator.Add(ip.Substring(0, 2)); // take one char
+                accumulator.Add(ip.Substring(0, 2)); // take two char
                 // recurse without the first char
                 RestoreIpAddressesDfs(ip.Substring(2), new List<string>(accumulator));
                 // remove the last added char
@@ -86,7 +86,7 @@ namespace Backtracking
 
             if (ip.Length >= 3)
             {
-                accumulator.Add(ip.Substring(0, 3)); // take one char
+                accumulator.Add(ip.Substring(0, 3)); // take three char
                 // recurse without the first char
                 RestoreIpAddressesDfs(ip.Substring(3), new List<string>(accumulator));
                 // remove the last added char

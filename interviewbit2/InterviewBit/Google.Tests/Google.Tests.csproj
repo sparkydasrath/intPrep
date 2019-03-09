@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepeatedStringMatchTests.cs" />
     <Compile Include="Utf8ValidationTests.cs" />
+    <Compile Include="WordSearchTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
