@@ -63,6 +63,92 @@
 
         public bool IsMatch(string s, string p)
         {
+            // https://leetcode.com/problems/wildcard-matching/discuss/17811/My-three-C%2B%2B-solutions-(iterative-(16ms)-and-DP-(180ms)-and-modified-recursion-(88ms))
+            int sLen = s.Length;
+            int pLen = p.Length;
+            int i;
+            int j;
+            int iStar = -1;
+            int jStar = -1;
+
+            for (i = 0, j = 0; i < sLen; i++, j++)
+            {
+                if (j < pLen && p[j] == '*')
+                {
+                    //meet a new '*', update traceback i/j info
+                    iStar = i;
+                    jStar = j;
+                    i--;
+                }
+                else
+                {
+                    if (j >= pLen || s[i] != p[j] && p[j] != '?')
+                    {
+                        // mismatch happens
+                        if (iStar >= 0)
+                        { // met a '*' before, then do traceback
+                            i = iStar++;
+                            j = jStar;
+                        }
+                        else return false; // otherwise fail
+                    }
+                }
+            }
+            while (j < pLen && p[j] == '*') j++;
+            return j == pLen;
+        }
+
+        public bool IsMatchDfs(string s, string p)
+        {
+            int result = IsMatchDfsHelper(s, p, 0, 0);
+            return result > 1;
+        }
+
+        public int IsMatchDfsHelper(string s, string p, int si, int pi)
+        {
+            // taken from https://leetcode.com/problems/wildcard-matching/discuss/17839/C%2B%2B-recursive-solution-16-ms
+
+            // return value:
+            // 0: reach the end of s but unmatched
+            // 1: unmatched without reaching the end of s
+            // 2: matched
+
+            int sLen = s.Length;
+            int pLen = p.Length;
+
+            if (si == sLen && pi == pLen) return 2; // match
+            if (si == sLen && p[pi] != '*') return 0; //  reach the end of s but unmatched
+            if (pi == pLen) return 1; // unmatched without reaching the end of s
+
+            if (s[si] == p[pi] || p[pi] == '?')
+                return IsMatchDfsHelper(s, p, si + 1, pi + 1);
+
+            if (p[pi] == '*')
+            {
+                if (pi + 1 > pLen && p[pi + 1] == '*')
+                    return IsMatchDfsHelper(s, p, si, pi + 1); // skip consecutive *
+
+                for (int i = 0; i <= sLen - si; i++)
+                {
+                    int ret = IsMatchDfsHelper(s, p, si + i, pi + 1);
+                    if (ret == 0 || ret == 2) return ret;
+                    /*
+                     NOTE:
+                     The purpose of ret==0 is that:
+                        Suppose i = 0, you start at si and pi.
+                        If the backtrack cannot find any matching, then it is meaningless to continue the for loop.
+                        If you cannot find a matching start from si,
+                            then how could you possibly find a matching starting from si+1?
+
+                 */
+                }
+            }
+
+            return 1;
+        }
+
+        public bool IsMatchDp(string s, string p)
+        {
             /*
                  Fucking DP problem. Setting up, understanding and deriving the conditions to fill each slot
                  fucking sucks ass. Without the video I wouldn't have a fucking clue what to do.

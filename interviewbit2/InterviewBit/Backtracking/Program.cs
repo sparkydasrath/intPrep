@@ -44,7 +44,7 @@ namespace Backtracking
             board[2, 2] = 'e';
             board[2, 3] = 'e';
 
-            bool results = p.Exist(board, "see");
+            // bool results = p.Exist(board, "see");
 
             Console.ReadLine();
         }

@@ -84,7 +84,7 @@ namespace Backtracking
             size = n;
             baseBoard = new int[n, n];
 
-            SolveNQueensDfs(baseBoard, 0);
+            SolveNQueensDfs(baseBoard, n, 0);
 
             PrintBoard(baseBoard);
 
@@ -132,8 +132,9 @@ namespace Backtracking
             return isBoardValid;
         }
 
-        private void SolveNQueensDfs(int[,] board, int row)
+        private void SolveNQueensDfs(int[,] board, int n, int row)
         {
+            if (n == 0) return;
             PrintBoard(board);
             Console.Write("========\n");
 
@@ -152,7 +153,7 @@ namespace Backtracking
                     Console.Write("After is valid check  2========\n");
 
                     // if the board is valid for that row and columns move to next row
-                    SolveNQueensDfs(board, row + 1);
+                    SolveNQueensDfs(board, n - 1, row + 1);
                 }
 
                 // remove queen
