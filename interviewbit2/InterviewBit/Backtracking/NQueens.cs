@@ -33,9 +33,37 @@ namespace Backtracking
 
          */
 
-        private readonly List<List<string>> results;
+        private readonly IList<IList<string>> results;
+        private int[,] baseBoard;
+        private int size;
 
-        public NQueens() => results = new List<List<string>>();
+        public NQueens() => results = new List<IList<string>>();
+
+        public bool IsBoardValid(int[,] board, int row, int col)
+        {
+            int n = board.GetLength(0);
+            int i, j;
+
+            for (i = 0; i < col; i++)
+            {
+                // row is fixed and check if there are any queens for each column on this row
+                if (board[row, i] == 1) return false;
+            }
+
+            for (i = row, j = col; i >= 0 && j >= 0; i--, j--)
+            {
+                // for the current row,col position, iterate left and up (diagonal) looking for a spot
+                if (board[i, j] == 1) return false;
+            }
+
+            for (i = row, j = col; i < n && j >= 0; i++, j--)
+            {
+                // for the current row,col position, iterate left and down (diagonal) looking for a spot
+                if (board[i, j] == 1) return false;
+            }
+
+            return true;
+        }
 
         public void PrintBoard(int[,] board)
         {
@@ -49,28 +77,32 @@ namespace Backtracking
             }
         }
 
-        public List<List<string>> SolveNQueens(int n)
+        public IList<IList<string>> SolveNQueens(int n)
         {
             if (n < 4) return results;
 
-            int[,] board = new int[n, n];
-            SolveNQueensDfs(board, 0);
+            size = n;
+            baseBoard = new int[n, n];
+
+            SolveNQueensDfs(baseBoard, 0);
+
+            PrintBoard(baseBoard);
 
             return results;
         }
 
-        private bool IsBoardValid(int[,] board, int row, int col)
+        private bool IsBoardValid2(int[,] board, int row, int col)
         {
             bool isBoundaryValid = false;
             bool isColumnValid = false;
             bool isDiagonalValid = false;
 
             // boundary checks
-            if (row >= 0 || row <= board.GetLength(0) - 1 || col >= 0 || col <= board.GetLength(1))
+            if (row >= 0 || row < size || col >= 0 || col < size)
                 isBoundaryValid = true;
 
             // valid if there are no queens in the same column
-            for (int c = 0; c < board.GetLength(1); c++)
+            for (int c = 0; c < size; c++)
             {
                 if (board[row, c] == 0)
                 {
@@ -78,6 +110,7 @@ namespace Backtracking
                     isColumnValid = true;
                 }
             }
+
             int i, j;
 
             // valid if no queens on diagonal
@@ -88,7 +121,7 @@ namespace Backtracking
                     isDiagonalValid = true;
             }
 
-            for (i = row, j = col; i < board.GetLength(0) && j >= 0; i++, j--)
+            for (i = row, j = col; i < size && j >= 0; i++, j--)
             {
                 // for the current row,col position, iterate left and down (diagonal) looking for a spot
                 if (board[i, j] != 1) isDiagonalValid = true;
@@ -103,14 +136,24 @@ namespace Backtracking
         {
             PrintBoard(board);
             Console.Write("========\n");
+
+            if (row >= size) return;
             for (int col = 0; col < board.GetLength(0); col++)
             {
                 // place queen
                 board[row, col] = 1;
 
-                // if the board is valid for that row and columns move to next row
-                if (IsBoardValid(board, row, col))
+                bool isValid = IsBoardValid2(board, row, col);
+
+                if (isValid)
+                {
+                    Console.Write("After is valid check  1========\n");
+                    PrintBoard(board);
+                    Console.Write("After is valid check  2========\n");
+
+                    // if the board is valid for that row and columns move to next row
                     SolveNQueensDfs(board, row + 1);
+                }
 
                 // remove queen
                 board[row, col] = 0;

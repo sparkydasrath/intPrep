@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace Backtracking.Tests
 {
@@ -9,7 +10,7 @@ namespace Backtracking.Tests
         public void ShouldGetValidNQueensSolution()
         {
             NQueens nq = new NQueens();
-            System.Collections.Generic.List<System.Collections.Generic.List<string>> results = nq.SolveNQueens(4);
+            IList<IList<string>> results = nq.SolveNQueens(4);
             Assert.That(results.Count, Is.Not.Zero);
         }
     }

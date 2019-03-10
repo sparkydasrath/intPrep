@@ -7,6 +7,7 @@ namespace Google
         public TrieNode() => Next = new TrieNode[26];
 
         public TrieNode[] Next { get; }
+        public char Value { get; set; }
         public string Word { get; set; }
     }
 
@@ -56,7 +57,7 @@ namespace Google
                 foreach (char c in word)
                 {
                     int i = c - 'a';
-                    if (p.Next[i] == null) p.Next[i] = new TrieNode();
+                    if (p.Next[i] == null) p.Next[i] = new TrieNode { Value = c };
                     p = p.Next[i];
                 }
                 p.Word = word;
@@ -91,9 +92,10 @@ namespace Google
                 visited[row, col]) return;
 
             char c = board[row, col];
-            if (p.Next[c - 'a'] == null) return;
+            int index = c - 'a';
+            if (p.Next[index] == null) return;
 
-            p = p.Next[c - 'a'];
+            p = p.Next[index];
             if (p.Word != null)
             {   // found one
                 results.Add(p.Word);
