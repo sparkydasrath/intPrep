@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Backtracking
 {
@@ -45,6 +46,21 @@ namespace Backtracking
             board[2, 3] = 'e';
 
             // bool results = p.Exist(board, "see");
+
+            int[] r = Enumerable.Range(1, 100).ToArray();
+            foreach (int i in r)
+            {
+                if (i % 15 == 0)
+                {
+                    Console.WriteLine("fb");
+                }
+                else if (i % 3 == 0) Console.WriteLine("f");
+                else if (i % 5 == 0) Console.WriteLine("b");
+                else
+                {
+                    Console.WriteLine(i);
+                }
+            }
 
             Console.ReadLine();
         }

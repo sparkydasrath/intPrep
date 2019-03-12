@@ -128,9 +128,12 @@
                 if (pi + 1 > pLen && p[pi + 1] == '*')
                     return IsMatchDfsHelper(s, p, si, pi + 1); // skip consecutive *
 
-                for (int i = 0; i <= sLen - si; i++)
+                int range = sLen - si;
+                for (int i = 0; i <= range; i++)
                 {
-                    int ret = IsMatchDfsHelper(s, p, si + i, pi + 1);
+                    int siNext = si + i;
+                    int piNext = pi + 1;
+                    int ret = IsMatchDfsHelper(s, p, siNext, piNext);
                     if (ret == 0 || ret == 2) return ret;
                     /*
                      NOTE:

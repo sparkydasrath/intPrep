@@ -78,6 +78,28 @@
 
         public bool IsMatch(string s, string p)
         {
+            // LC https://leetcode.com/articles/regular-expression-matching/#
+            if (p.Length == 0) return s.Length == 0;  //If the pattern is empty, then only an empty string can match
+
+            //checks if current char in string is equal to current char in pattern
+            bool firstMatch = !string.IsNullOrWhiteSpace(s) && (s[0] == p[0] || p[0] == '.');
+
+            //kleene star coming up
+            if (p.Length >= 2 && p[1] == '*')
+            {
+                bool result =
+                          IsMatch(s, p.Substring(2)) /*if there are 0 occurrences of the star's preceding char, skip over it. */
+                            ||
+                          firstMatch && IsMatch(s.Substring(1), p); //there is an instance of the star's preceding character
+                return result;
+            }
+
+            //no kleene star coming up,
+            return firstMatch && IsMatch(s.Substring(1), p.Substring(1)); //since there was no star, check isFirstMatch and then rest of string
+        }
+
+        public bool IsMatchDp(string s, string p)
+        {
             bool[,] T = new bool[s.Length + 1, p.Length + 1];
             T[0, 0] = true;
             // do some housekeeping to handle cases like a* or a*b* or z*b*c* (17:00)
@@ -131,5 +153,111 @@
 
             return T[s.Length, p.Length];
         }
+
+        /*
+        public bool IsMatchHelper3(string s, string p, int si, int pi)
+        {
+            // return value:
+            // 0: reach the end of s but unmatched
+            // 1: unmatched without reaching the end of s
+            // 2: matched
+            int sLen = s.Length;
+            int pLen = p.Length;
+            if (si == sLen && pi == pLen) return true;
+            if (si != sLen && pi == pLen) return false;
+            if (si == sLen && pi != pLen) return false;
+            // if the chars don't match and the next one isn't a * then this pattern is a dud
+            if (pi + 1 < pLen && s[si] != p[pi] && p[pi + 1] != '*') return false;
+
+            // match
+            if (s[si] == p[pi] || p[pi] == '.')
+            {
+                // if the chars match or the pattern has a . then everything matched so far so
+                // continue the process
+                return IsMatchHelper(s, p, si, pi + 1);
+            }
+
+            if (p[pi] == '*')
+            {
+                /* means we have matched previous chars and now have a char/* pair
+                 ex: s = aa,
+                     p = a*
+
+                    s[0]==p[0] = a  OK
+                    s[1]!=p[1] = *  Need to check prev char
+
+                 #1#
+
+                char prevChar = p[pi - 1]; // assume happy path for now
+                if (s[si] != prevChar) return false;
+
+                // since it is a match, need to find how many chars in s can be included as part of
+                // the zero or more match case
+                while (si < sLen && s[si] == prevChar) si++;
+
+                // once this is done, just try to match other chars
+                return IsMatchHelper(s, p, si, pi + 1);
+            }
+
+            // if it doesn't match, check if the next char is *
+            if (s[si] != p[pi] && pi < pLen && p[pi + 1] == '*')
+            {
+                return IsMatchHelper(s, p, si, pi + 2);
+            }
+
+            return false;
+        }
+*/
+
+        /*public int IsMatchHelper2(string s, string p, int si, int pi)
+        {
+            // return value:
+            // 0: reach the end of s but unmatched
+            // 1: unmatched without reaching the end of s
+            // 2: matched
+            int sLen = s.Length;
+            int pLen = p.Length;
+            if (si == sLen && pi == pLen) return 2;
+            if (si == sLen && p[pi] != '*') return 1;
+            // if the chars don't match and the next one isn't a * then this pattern is a dud
+            if (s[si] != p[pi] && pi < pLen && p[pi + 1] != '*') return 1;
+
+            // match
+            if (s[si] == p[pi] || p[pi] == '.')
+            {
+                // if the chars match or the pattern has a . then everything matched so far so
+                // continue the process
+                return IsMatchHelper(s, p, si + 1, pi + 1);
+            }
+
+            if (p[pi] == '*')
+            {
+                /* means we have matched previous chars and now have a char/* pair
+                 ex: s = aa,
+                     p = a*
+
+                    s[0]==p[0] = a  OK
+                    s[1]!=p[1] = *  Need to check prev char
+
+                 #1#
+
+                char prevChar = p[pi - 1]; // assume happy path for now
+                if (s[si] != prevChar) return 1;
+
+                // since it is a match, need to find how many chars in s can be included as part of
+                // the zero or more match case
+                while (si < sLen && s[si] == prevChar) si++;
+                // once this is done, just try to match other chars
+                return IsMatchHelper(s, p, si + 1, pi + 1);
+            }
+
+            // if it doesn't match, check if the next char is *
+            if (s[si] != p[pi] && pi < pLen && p[pi + 1] == '*')
+            {
+                return IsMatchHelper(s, p, si, pi + 2);
+            }
+
+            return 1;
+        }*/
     }
 }
