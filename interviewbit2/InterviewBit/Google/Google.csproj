@@ -55,6 +55,7 @@
     <Compile Include="SubstringWithConcatenationOfAllWords.cs" />
     <Compile Include="SummaryRanges.cs" />
     <Compile Include="UTF8Validation.cs" />
+    <Compile Include="WordLadder.cs" />
     <Compile Include="WordSearch1.cs" />
     <Compile Include="WordSearch2.cs" />
     <Compile Include="WordSearch2BruteForce.cs" />
