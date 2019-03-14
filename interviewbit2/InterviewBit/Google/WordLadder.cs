@@ -1,8 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Google
 {
+    public struct WordLevelPair
+    {
+        public WordLevelPair(string word, int level)
+        {
+            Word = word;
+            Level = level;
+        }
+
+        public int Level { get; }
+        public string Word { get; }
+    }
+
     public class WordLadder
     {
         /*
@@ -47,47 +60,53 @@ namespace Google
 
          */
 
-        private readonly IList<IList<string>> results;
-        private bool[] visited;
+        private readonly IList<IList<string>> resultsDfs;
+        private Dictionary<string, IList<string>> adjList;
+        private IList<WordLevelPair> resultsBfs;
+        private Dictionary<string, bool> visitedBfs;
+        private bool[] visitedDfs;
 
-        public WordLadder() => results = new List<IList<string>>();
+        public WordLadder()
+        {
+            resultsDfs = new List<IList<string>>();
+            resultsBfs = new List<WordLevelPair>();
+            adjList = new Dictionary<string, IList<string>>();
+            visitedBfs = new Dictionary<string, bool>();
+        }
 
         public int LadderLength(string beginWord, string endWord, IList<string> wordList)
         {
             if (!wordList.Contains(endWord)) return 0;
 
-            visited = new bool[wordList.Count];
+            visitedDfs = new bool[wordList.Count];
             IList<string> accumulator = new List<string>();
+
+            IList<string> allWords = new List<string>(wordList);
+            allWords.Insert(0, beginWord);
+
+            BuildAdjList(allWords);
+
+            LadderLengthHelperBfs(beginWord, endWord, wordList);
             LadderLengthHelper(beginWord, endWord, wordList, accumulator, beginWord);
 
-            /**/
-            int min = int.MaxValue;
+            foreach (WordLevelPair pair in resultsBfs) { Console.WriteLine($"{pair.Word} {pair.Level}"); }
 
-            foreach (IList<string> result in results)
-            {
-                IList<string> r = result;
-                if (!result.Contains(beginWord))
-                    r.Insert(0, beginWord);
-                min = Math.Min(min, r.Count);
-                Console.WriteLine(string.Join("->", r));
-            }
-
-            return min == int.MaxValue ? 0 : min;
+            return resultsBfs.Last().Level;
         }
 
         public void LadderLengthHelper(string beginWord, string endWord, IList<string> wordList, IList<string> accumulator, string originalBeginWord)
         {
             if (accumulator.Count > 0 && accumulator[accumulator.Count - 1] == endWord)
             {
-                results.Add(accumulator);
+                resultsDfs.Add(accumulator);
                 return;
             }
 
             for (int i = 0; i < wordList.Count; i++)
             {
-                if (!visited[i])
+                if (!visitedDfs[i])
                 {
-                    visited[i] = true;
+                    visitedDfs[i] = true;
                     accumulator.Add(wordList[i]);
 
                     string currWord = wordList[i];
@@ -97,8 +116,27 @@ namespace Google
                     if (IsOneCharApart(beginWord, currWord))
                         LadderLengthHelper(currWord, endWord, wordList, new List<string>(accumulator), originalBeginWord);
 
-                    visited[i] = false;
+                    visitedDfs[i] = false;
                     accumulator.RemoveAt(accumulator.Count - 1);
+                }
+            }
+        }
+
+        private void BuildAdjList(IList<string> wordList)
+        {
+            for (int i = 0; i < wordList.Count; i++)
+            {
+                string key = wordList[i];
+
+                if (!adjList.ContainsKey(key))
+                    adjList[key] = new List<string>();
+
+                for (int j = 0; j < wordList.Count; j++)
+                {
+                    string word = wordList[j];
+                    if (key == word) continue; // skip if the begin word is also part of the wordlist
+                    if (IsOneCharApart(key, word))
+                        adjList[key].Add(word);
                 }
             }
         }
@@ -112,19 +150,47 @@ namespace Google
                 if (word1[i] != word2[i]) count++;
 
             return count == 1;
+        }
 
-            /*Dictionary<char, int> map = new Dictionary<char, int>();
-            foreach (char c in word1)
+        private void LadderLengthHelperBfs(string beginWord, string endWord, IList<string> wordList)
+        {
+            Queue<WordLevelPair> queue = new Queue<WordLevelPair>();
+            WordLevelPair startingPair = new WordLevelPair(beginWord, 1);
+            queue.Enqueue(startingPair);
+            resultsBfs.Add(startingPair);
+            visitedBfs[beginWord] = true;
+
+            while (queue.Count != 0)
             {
-                if (!map.ContainsKey(c)) map[c] = 1;
-                else map[c]++;
+                WordLevelPair pair = queue.Dequeue();
+                string currentWord = pair.Word;
+                int level = pair.Level;
+
+                for (int i = 0; i < wordList.Count; i++)
+                {
+                    // otherwise, grab the nodes closest to this one and enqueue them
+                    IList<string> adjNodes = adjList[currentWord];
+
+                    if (adjNodes == null || adjNodes.Count == 0) continue;
+
+                    foreach (string adjWord in adjNodes)
+                    {
+                        if (adjWord == endWord)
+                        {
+                            resultsBfs.Add(new WordLevelPair(adjWord, level + 1));
+                            return;
+                        }
+
+                        if (!visitedBfs.ContainsKey(adjWord))
+                        {
+                            visitedBfs[adjWord] = true;
+                            WordLevelPair adjLevelPair = new WordLevelPair(adjWord, level + 1);
+                            resultsBfs.Add(adjLevelPair);
+                            queue.Enqueue(adjLevelPair);
+                        }
+                    }
+                }
             }
-
-            foreach (char c in word2)
-                if (map.ContainsKey(c)) map[c]--;
-
-            int cc = map.Values.Count(c => c == 1);
-            return cc == 1;*/
         }
     }
 }
