@@ -47,8 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNumbersTests.cs" />
+    <Compile Include="AdvanceThroughArrayGameTests.cs" />
     <Compile Include="ArrayPartitionTests.cs" />
     <Compile Include="ContainerWithMostWaterTests.cs" />
+    <Compile Include="DutchNationalFlagTests.cs" />
     <Compile Include="FindElementInRotatedSortedArrayTests.cs" />
     <Compile Include="FindTheTownJudgeTests.cs" />
     <Compile Include="FlippingAnImageTests.cs" />
@@ -56,6 +59,7 @@
     <Compile Include="MeetingRoomsTests.cs" />
     <Compile Include="MergeIntervalsTests.cs" />
     <Compile Include="MinArrowsToBurstBalloonsTests.cs" />
+    <Compile Include="MultiplyNumbersTests.cs" />
     <Compile Include="NextPermutationTests.cs" />
     <Compile Include="PermutationSequenceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

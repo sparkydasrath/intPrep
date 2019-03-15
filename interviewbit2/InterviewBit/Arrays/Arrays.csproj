@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNumbers.cs" />
+    <Compile Include="AdvanceThroughArrayGame.cs" />
     <Compile Include="ArrayPartition.cs" />
     <Compile Include="ContainerWithMostWater.cs" />
     <Compile Include="DoArrayProblems.cs" />
+    <Compile Include="DutchNationalFlag.cs" />
     <Compile Include="FindTheCelebrity.cs" />
     <Compile Include="FindTheTownJudge.cs" />
     <Compile Include="FlippingAnImage.cs" />
@@ -56,6 +59,7 @@
     <Compile Include="MergeIntervals.cs" />
     <Compile Include="MergeIntervalsBetter.cs" />
     <Compile Include="MinArrowsToBurstBalloons.cs" />
+    <Compile Include="MultiplyNumbers.cs" />
     <Compile Include="NextPermutation.cs" />
     <Compile Include="PermutationSequence.cs" />
     <Compile Include="Program.cs" />

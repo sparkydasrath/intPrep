@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Arrays.Tests
 {
-    public class AddOne
+    public class AddNumbers
     {
         /*
             Write a program which takes as input an array of digits encoding a decimal number

@@ -47,10 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddOne.cs" />
-    <Compile Include="AddOneTests.cs" />
+    <Compile Include="AddNumbers.cs" />
+    <Compile Include="AddNumbersTests.cs" />
+    <Compile Include="AdvanceThroughArrayGameTests.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DutchNationalFlagTests.cs" />
+    <Compile Include="MultiplyNumbersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
