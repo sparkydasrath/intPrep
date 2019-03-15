@@ -34,6 +34,34 @@
             return nums;
         }
 
+        public int[] SortDnf2(int[] nums, int index)
+        {
+            int smaller = 0;
+            int pointer = 0;
+            int larger = nums.Length - 1;
+            int indexVal = nums[index];
+
+            // this seems to only work if pointer <= larger otherwise if the last element is smaller
+            // than the pivot, the loop terminates before it gets checked
+            while (pointer < larger)
+            {
+                if (nums[pointer] < indexVal)
+                {
+                    Swap(nums, pointer, smaller);
+                    smaller++;
+                    pointer++;
+                }
+                else if (nums[pointer] == indexVal) pointer++;
+                else
+                {
+                    Swap(nums, pointer, larger);
+                    larger--;
+                }
+            }
+
+            return nums;
+        }
+
         private void Swap(int[] nums, int idx1, int idx2)
         {
             int val1 = nums[idx1];
