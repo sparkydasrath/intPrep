@@ -47,5 +47,78 @@ namespace Arrays
             }
             return furthestReachSoFar >= lastIndex;
         }
+
+        public int MinimumJumpsToGetToEndOfList(List<int> nums)
+        {
+            /*
+             https://www.geeksforgeeks.org/minimum-number-jumps-reach-endset-2on-solution/
+
+            Minimum number of jumps to reach end | Set 2 (O(n) solution)
+
+            Given an array of integers where each element represents the max number of steps that can be made forward from that element.
+            Write a function to return the minimum number of jumps to reach the end of the array (starting from the first element).
+            If an element is 0, then we cannot move through that element.
+
+            Examples:
+
+            Input :  arr[] = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9}
+            Output :  3 (1-> 3 -> 8 -> 9)
+
+            */
+
+            if (nums.Count <= 1)
+                return 0;
+
+            // Return -1 if not possible to jump
+            if (nums[0] == 0)
+                return -1;
+
+            List<int> results = new List<int>
+            {
+                // nums[0]
+            };
+            int max = nums[0];
+            int steps = nums[0];
+            int jumps = nums[0];
+            for (int i = 1; i < nums.Count; i++)
+            {
+                /*
+                 First we test whether we have reached the end of the array, in that case
+                 we just need to return the jump variable.
+                 */
+                if (i == nums.Count - 1)
+                {
+                    return jumps;
+                }
+
+                /*
+                 Next we update the maxReach. This is equal to the maximum of maxReach and i+arr[i]
+                 (the number of steps we can take from the current position).
+                 */
+                int val = i + nums[i];
+                max = Math.Max(max, val);
+
+                // We used up a step to get to the current index, so steps has to be decreased.
+                steps--;
+
+                // If no further steps left
+                if (steps == 0)
+                {
+                    // we must have used a jump
+                    jumps++;
+
+                    // Check if the current index/position or lesser index is the maximum reach point
+                    // from the previous indexes
+                    if (i >= max) return -1;
+
+                    // re-initialize the steps to the amount of steps to reach maxReach from position i.
+                    steps = max - i;
+                }
+            }
+
+            Console.WriteLine(string.Join(" ", results));
+
+            return -1;
+        }
     }
 }
