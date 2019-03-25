@@ -1,4 +1,4 @@
-﻿namespace Arrays
+﻿namespace InterviewTests
 {
     internal class Program
     {

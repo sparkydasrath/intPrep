@@ -69,6 +69,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backtracking", "Backtrackin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backtracking.Tests", "Backtracking.Tests\Backtracking.Tests.csproj", "{7E11E806-68FF-4CF6-A00E-D13F14B2D742}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewTests", "InterviewTests\InterviewTests.csproj", "{3D8BE3E6-A74B-4081-8381-FE4DE7E29DCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -207,6 +209,10 @@ Global
 		{7E11E806-68FF-4CF6-A00E-D13F14B2D742}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E11E806-68FF-4CF6-A00E-D13F14B2D742}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E11E806-68FF-4CF6-A00E-D13F14B2D742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D8BE3E6-A74B-4081-8381-FE4DE7E29DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D8BE3E6-A74B-4081-8381-FE4DE7E29DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D8BE3E6-A74B-4081-8381-FE4DE7E29DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D8BE3E6-A74B-4081-8381-FE4DE7E29DCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
