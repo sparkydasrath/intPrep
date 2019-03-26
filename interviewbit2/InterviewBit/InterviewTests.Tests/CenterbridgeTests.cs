@@ -10,23 +10,23 @@ namespace InterviewTests.Tests
         [Test]
         public void ShouldHaveSampleNumberInResultSet()
         {
-            Centerbridge cb = new Centerbridge(GetSampleData(), new[] { '*', '#' }, string.Empty, 7);
-            List<string> results = cb.GeneratePhoneNumbers();
-            Assert.That(results.Contains("3145289"));
+            Centerbridge cb = new Centerbridge(GetSampleData(), new[] { '1', '0' }, new[] { '*', '#' });
+            List<string> results = cb.GeneratePhoneNumbers(ChessPiece.Bishop, NumberLength.Seven);
+            Assert.That(results.Contains("314-5289"));
         }
 
         [Test]
         public void ShouldThrowArgumentExceptionIfInputCannotGenerateDesiredPhoneNumberLength()
         {
-            Centerbridge cb;
-            Assert.Throws<ArgumentException>(() => cb = new Centerbridge(new char[2, 2], null, string.Empty, 7));
+            Centerbridge cb = new Centerbridge(new char[2, 2], null, null);
+            Assert.Throws<ArgumentException>(() => cb.GeneratePhoneNumbers(ChessPiece.Rook, NumberLength.Seven));
         }
 
         [Test]
         public void ShouldThrowArgumentExceptionIfInputIsNull()
         {
             Centerbridge cb;
-            Assert.Throws<ArgumentNullException>(() => cb = new Centerbridge(null, null, string.Empty, 7));
+            Assert.Throws<ArgumentNullException>(() => cb = new Centerbridge(null, null, null));
         }
 
         private char[,] GetSampleData()
