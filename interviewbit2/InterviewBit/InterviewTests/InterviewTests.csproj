@@ -43,10 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BishopStrategyGeneration.cs" />
     <Compile Include="Centerbridge.cs" />
     <Compile Include="Cerberus.cs" />
+    <Compile Include="ChessPiece.cs" />
+    <Compile Include="KingStrategyGeneration.cs" />
+    <Compile Include="NumberGenerationStrategy.cs" />
+    <Compile Include="NumberLength.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueenStrategyGeneration.cs" />
+    <Compile Include="RookStrategyGeneration.cs" />
     <Compile Include="Talan.cs" />
   </ItemGroup>
   <ItemGroup>
