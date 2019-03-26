@@ -1,9 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace InterviewTests
 {
+    public static class ValidateParameters
+    {
+        public static void Input(char[,] input)
+        {
+            if (input == null) throw new ArgumentNullException(nameof(input), "Input is null - please enter a valid matrix");
+            if (input.GetLength(0) == 0 || input.GetLength(1) == 0) throw new ArgumentException("Input is not properly formed - one of the dimensions is zero", nameof(input));
+        }
+
+        public static void LengthOfDesiredPhoneNumber(char[,] input, int lengthOfPhoneNumber)
+        {
+            if (input.GetLength(0) * input.GetLength(1) < lengthOfPhoneNumber)
+                throw new ArgumentException($"Input size too small to generate numbers of length {lengthOfPhoneNumber}", nameof(lengthOfPhoneNumber));
+        }
+    }
+
     public class Centerbridge
     {
         /*
@@ -24,6 +38,7 @@ namespace InterviewTests
         • Seven digits in length
         • Cannot start with a 0 or 1
         • Cannot contain a * or #
+
         Design goals:
         • Object-oriented design concepts should be used where ever they make sense
         • The program should be flexible enough so that it is easy to use with any chess piece.
@@ -37,41 +52,43 @@ namespace InterviewTests
 
         private readonly int cols;
         private readonly char[,] input;
-        private readonly char[] invalidChars;
+        private readonly HashSet<char> invalidCharsHashSet;
+        private readonly int lengthOfPhoneNumber;
         private readonly List<string> results;
         private readonly int rows;
         private readonly bool[,] visited;
 
-        public Centerbridge(char[,] input, char[] invalidChars)
+        public Centerbridge(char[,] input, char[] invalidChars, string chessPiece, int lengthOfPhoneNumber)
         {
-            this.input = GetSampleData() ?? throw new InvalidEnumArgumentException("Please provide a valid matrix");
+            this.input = input;
+            this.lengthOfPhoneNumber = lengthOfPhoneNumber;
+            ValidateParameters.Input(input);
+
+            invalidCharsHashSet = new HashSet<char>();
+            CreateInvalidCharsHashSet(invalidChars);
+
             rows = this.input.GetLength(0);
             cols = this.input.GetLength(1);
 
-            // deal with some checking here such as the min elements needed to make phone numbers
+            ValidateParameters.LengthOfDesiredPhoneNumber(input, lengthOfPhoneNumber);
 
-            this.invalidChars = invalidChars;
             results = new List<string>();
             visited = new bool[rows, cols];
         }
 
-        public void GeneratePhoneNumbers()
+        public List<string> GeneratePhoneNumbers()
         {
             for (int row = 0; row < rows; row++)
-            {
                 for (int col = 0; col < cols; col++)
-                {
-                    if (!visited[row, col])
-                        GeneratePhoneNumbersHelper(row, col, new List<char>());
-                }
-            }
+                    if (!visited[row, col]) GeneratePhoneNumbersHelper(row, col, new List<char>());
 
             foreach (string r in results)
             {
                 string num = string.Join("", r);
-                if (num == "3145289") Console.ReadLine();
                 Console.WriteLine(num);
             }
+
+            return results;
         }
 
         public void GeneratePhoneNumbersHelper(int row, int col, List<char> accumulator)
@@ -91,13 +108,21 @@ namespace InterviewTests
             accumulator.Add(input[row, col]);
 
             // explore in 4 directions
-            GeneratePhoneNumbersHelper(row, col + 1, new List<char>(accumulator)); // right
-            GeneratePhoneNumbersHelper(row, col - 1, new List<char>(accumulator)); // left
-            GeneratePhoneNumbersHelper(row + 1, col, new List<char>(accumulator)); // up
-            GeneratePhoneNumbersHelper(row - 1, col, new List<char>(accumulator)); // down
+            for (int i = row; i < rows; i++)
+            {
+                // for lop to allow exploration in more than 1 cell increments
+                GeneratePhoneNumbersHelper(row + i, col, new List<char>(accumulator)); // up
+                GeneratePhoneNumbersHelper(row - i, col, new List<char>(accumulator)); // down
+            }
+
+            for (int i = col; i < cols; i++)
+            {
+                // for lop to allow exploration in more than 1 cell increments
+                GeneratePhoneNumbersHelper(row, col + i, new List<char>(accumulator)); // right
+                GeneratePhoneNumbersHelper(row, col - i, new List<char>(accumulator)); // left
+            }
 
             // backtrack
-
             accumulator.RemoveAt(accumulator.Count - 1);
             visited[row, col] = false;
         }
@@ -105,10 +130,21 @@ namespace InterviewTests
         private bool CheckBoundaryConditions(int row, int col)
         {
             bool boundaryCheck = row < 0 || row >= rows || col < 0 || col >= cols ||
-                                 input[row, col] == '*' || input[row, col] == '#' ||
+                                 invalidCharsHashSet.Contains(input[row, col]) ||
                                  visited[row, col];
 
             return boundaryCheck;
+        }
+
+        private void CreateInvalidCharsHashSet(char[] invalidChars)
+        {
+            if (invalidChars == null || invalidChars.Length == 0) return;
+
+            foreach (char invalidChar in invalidChars)
+            {
+                if (!invalidCharsHashSet.Contains(invalidChar))
+                    invalidCharsHashSet.Add(invalidChar);
+            }
         }
 
         private char[,] GetSampleData()
