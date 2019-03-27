@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace InterviewTests
+namespace InterviewTests.centerbridge
 {
     public abstract class NumberGenerationStrategy
     {

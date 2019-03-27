@@ -1,23 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace InterviewTests
+namespace InterviewTests.centerbridge
 {
-    public static class ValidateParameters
-    {
-        public static void Input(char[,] input)
-        {
-            if (input == null) throw new ArgumentNullException(nameof(input), "Input is null - please enter a valid matrix");
-            if (input.GetLength(0) == 0 || input.GetLength(1) == 0) throw new ArgumentException("Input is not properly formed - one of the dimensions is zero", nameof(input));
-        }
-
-        public static void LengthOfDesiredPhoneNumber(char[,] input, NumberLength numberLength)
-        {
-            if (input.GetLength(0) * input.GetLength(1) < (int)numberLength)
-                throw new ArgumentException($"Input size too small to generate numbers of length {numberLength}", nameof(numberLength));
-        }
-    }
-
     public class Centerbridge
     {
         /*
@@ -58,6 +43,15 @@ namespace InterviewTests
         private readonly int rows;
         private readonly bool[,] visited;
 
+        /// <summary>
+        /// Class to generate 7 or 9 digit phone numbers using a given matrix and movements of chess
+        /// pieces to generate the numbers.
+        /// </summary>
+        /// <param name="baseList">User supplied matrix of numbers represented as chars</param>
+        /// <param name="exclusionList">List of non-allowed chars like '*'</param>
+        /// <param name="nonStartingList">
+        /// List of chars the numbers are not allowed to start with like '0' or '1'
+        /// </param>
         public Centerbridge(char[,] baseList, char[] exclusionList, char[] nonStartingList)
         {
             this.baseList = baseList;
@@ -77,13 +71,10 @@ namespace InterviewTests
         public HashSet<string> GeneratePhoneNumbers(ChessPiece chessPiece, NumberLength numberLength)
         {
             ValidateParameters.LengthOfDesiredPhoneNumber(baseList, numberLength);
-
-            // set these to private fields so that you don't need to needlessly pass it as params in
-            // the helper
-
             NumberGenerationStrategy strategy = null;
 
-            // reset
+            // reset if the user wants to call GeneratePhoneNumbers() on the same object but using
+            // different params
             ResetVisitedAndResults();
 
             for (int row = 0; row < rows; row++)

@@ -43,24 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BishopStrategyGeneration.cs" />
-    <Compile Include="Centerbridge.cs" />
+    <Compile Include="centerbridge\BishopStrategyGeneration.cs" />
+    <Compile Include="centerbridge\Centerbridge.cs" />
+    <Compile Include="centerbridge\ValidateParameters.cs" />
     <Compile Include="Cerberus.cs" />
-    <Compile Include="ChessPiece.cs" />
-    <Compile Include="KingStrategyGeneration.cs" />
-    <Compile Include="KnightStrategyGeneration.cs" />
-    <Compile Include="NumberGenerationStrategy.cs" />
-    <Compile Include="NumberLength.cs" />
-    <Compile Include="PawnStrategyGeneration.cs" />
+    <Compile Include="centerbridge\ChessPiece.cs" />
+    <Compile Include="centerbridge\KingStrategyGeneration.cs" />
+    <Compile Include="centerbridge\KnightStrategyGeneration.cs" />
+    <Compile Include="centerbridge\NumberGenerationStrategy.cs" />
+    <Compile Include="centerbridge\NumberLength.cs" />
+    <Compile Include="centerbridge\PawnStrategyGeneration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueenStrategyGeneration.cs" />
-    <Compile Include="RookStrategyGeneration.cs" />
+    <Compile Include="centerbridge\QueenStrategyGeneration.cs" />
+    <Compile Include="centerbridge\RookStrategyGeneration.cs" />
     <Compile Include="Talan.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="centerbridgeReadme.md" />
+    <None Include="centerbridge\centerbridgeReadme.md" />
     <None Include="talan\2019.03.25_talan.pdf" />
   </ItemGroup>
   <ItemGroup>

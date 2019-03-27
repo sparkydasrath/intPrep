@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace InterviewTests
+namespace InterviewTests.centerbridge
 {
     public class KnightStrategyGeneration : NumberGenerationStrategy
     {
         private readonly char[,] baseList;
-        private readonly HashSet<char> nonStartingSet;
         private readonly NumberLength numLength;
         private readonly HashSet<string> results;
         private readonly bool[,] visited;
@@ -13,7 +12,6 @@ namespace InterviewTests
         public KnightStrategyGeneration(char[,] baseList, HashSet<char> exclusionSet, HashSet<char> nonStartingSet, bool[,] visited, NumberLength numLength, HashSet<string> results) : base(baseList, exclusionSet, nonStartingSet, visited)
         {
             this.baseList = baseList;
-            this.nonStartingSet = nonStartingSet;
             this.visited = visited;
             this.numLength = numLength;
             this.results = results;

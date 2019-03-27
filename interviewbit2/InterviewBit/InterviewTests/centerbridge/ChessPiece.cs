@@ -1,4 +1,4 @@
-﻿namespace InterviewTests
+﻿namespace InterviewTests.centerbridge
 {
     public enum ChessPiece
     {
