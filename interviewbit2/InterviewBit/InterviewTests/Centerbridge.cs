@@ -118,9 +118,15 @@ namespace InterviewTests
                             }
 
                         case ChessPiece.Knight:
+                            if (strategy == null)
+                                strategy = new KnightStrategyGeneration(baseList, exclusionSet, nonStartingSet, visited, numberLength, results);
+                            strategy.DfsHelper(row, col, new List<char>());
                             break;
 
                         case ChessPiece.Pawn:
+                            if (strategy == null)
+                                strategy = new PawnStrategyGeneration(baseList, exclusionSet, nonStartingSet, visited, numberLength, results);
+                            strategy.DfsHelper(row, col, new List<char>());
                             break;
 
                         case ChessPiece.Queen:
@@ -130,8 +136,6 @@ namespace InterviewTests
                                 strategy.DfsHelper(row, col, new List<char>());
                                 break;
                             }
-
-                        default: break;
                     }
                 }
             }

@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CenterbridgeTests.cs" />
+    <Compile Include="StrategyTests.cs" />
+    <Compile Include="NumberGenerationStrategyMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

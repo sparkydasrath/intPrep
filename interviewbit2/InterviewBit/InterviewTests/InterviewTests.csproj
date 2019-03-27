@@ -48,8 +48,10 @@
     <Compile Include="Cerberus.cs" />
     <Compile Include="ChessPiece.cs" />
     <Compile Include="KingStrategyGeneration.cs" />
+    <Compile Include="KnightStrategyGeneration.cs" />
     <Compile Include="NumberGenerationStrategy.cs" />
     <Compile Include="NumberLength.cs" />
+    <Compile Include="PawnStrategyGeneration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueenStrategyGeneration.cs" />
@@ -58,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="centerbridgeReadme.md" />
     <None Include="talan\2019.03.25_talan.pdf" />
   </ItemGroup>
   <ItemGroup>

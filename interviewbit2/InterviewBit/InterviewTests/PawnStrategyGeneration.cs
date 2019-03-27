@@ -2,7 +2,7 @@
 
 namespace InterviewTests
 {
-    public class RookStrategyGeneration : NumberGenerationStrategy
+    public class PawnStrategyGeneration : NumberGenerationStrategy
     {
         private readonly char[,] baseList;
         private readonly HashSet<char> exclusionSet;
@@ -11,7 +11,7 @@ namespace InterviewTests
         private readonly HashSet<string> results;
         private readonly bool[,] visited;
 
-        public RookStrategyGeneration(char[,] baseList, HashSet<char> exclusionSet, HashSet<char> nonStartingSet, bool[,] visited, NumberLength numLength, HashSet<string> results) :
+        public PawnStrategyGeneration(char[,] baseList, HashSet<char> exclusionSet, HashSet<char> nonStartingSet, bool[,] visited, NumberLength numLength, HashSet<string> results) :
             base(baseList, exclusionSet, nonStartingSet, visited)
         {
             this.baseList = baseList;
@@ -34,20 +34,11 @@ namespace InterviewTests
             visited[row, col] = true;
             accumulator.Add(baseList[row, col]);
 
-            // explore in 4 directions for rook
-            for (int i = row; i < baseList.GetLength(0); i++)
-            {
-                // for lop to allow exploration in more than 1 cell increments
-                DfsHelper(row + i, col, new List<char>(accumulator)); // down
-                DfsHelper(row - i, col, new List<char>(accumulator)); // up
-            }
+            // explore moving down and diagonally for pawn
 
-            for (int i = col; i < baseList.GetLength(1); i++)
-            {
-                // for lop to allow exploration in more than 1 cell increments
-                DfsHelper(row, col + i, new List<char>(accumulator)); // right
-                DfsHelper(row, col - i, new List<char>(accumulator)); // left
-            }
+            DfsHelper(row + 1, col, new List<char>(accumulator)); // down
+            DfsHelper(row + 1, col + 1, new List<char>(accumulator)); // down + right
+            DfsHelper(row + 1, col - 1, new List<char>(accumulator)); // down + left
 
             // backtrack
             accumulator.RemoveAt(accumulator.Count - 1);

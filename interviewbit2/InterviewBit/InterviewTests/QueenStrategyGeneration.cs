@@ -10,7 +10,8 @@ namespace InterviewTests
         private readonly HashSet<string> results;
         private readonly bool[,] visited;
 
-        public QueenStrategyGeneration(char[,] baseList, HashSet<char> exclusionSet, HashSet<char> nonStartingSet, bool[,] visited, NumberLength numLength, HashSet<string> results) : base(baseList, exclusionSet, visited)
+        public QueenStrategyGeneration(char[,] baseList, HashSet<char> exclusionSet, HashSet<char> nonStartingSet, bool[,] visited, NumberLength numLength, HashSet<string> results) :
+            base(baseList, exclusionSet, nonStartingSet, visited)
         {
             this.baseList = baseList;
             this.nonStartingSet = nonStartingSet;
@@ -23,33 +24,19 @@ namespace InterviewTests
         {
             CheckBaseCase(accumulator, numLength, results);
 
-            if (CheckBoundaryConditions(row, col)) return;
+            if (IsNotValidMove(row, col)) return;
 
-            // anything in the nonStartingSet will not be used as the start of the phone number
-            if (accumulator.Count == 0 && nonStartingSet.Contains(baseList[row, col])) return;
+            if (IsNotAllowedToStartWith(row, col, accumulator)) return;
 
             // mark as visited
             visited[row, col] = true;
             accumulator.Add(baseList[row, col]);
 
-            // the queen can move in 8 directions and like the rook, can either move 1 or more
-            // positions at a time
-
-            // DfsHelper(row + 1, col, new List<char>(accumulator)); // up DfsHelper(row - 1, col,
-            // new List<char>(accumulator)); // down DfsHelper(row, col + 1, new
-            // List<char>(accumulator)); // right DfsHelper(row, col - 1, new
-            // List<char>(accumulator)); // left
-            //
-            // DfsHelper(row + 1, col + 1, new List<char>(accumulator)); // up + right DfsHelper(row
-            // + 1, col - 1, new List<char>(accumulator)); // up + left DfsHelper(row - 1, col + 1,
-            // new List<char>(accumulator)); // down + right DfsHelper(row - 1, col - 1, new
-            // List<char>(accumulator)); // down + left
-
             for (int i = row; i < baseList.GetLength(0); i++)
             {
                 // for lop to allow exploration in more than 1 cell increments
-                DfsHelper(row + i, col, new List<char>(accumulator)); // up
-                DfsHelper(row - i, col, new List<char>(accumulator)); // down
+                DfsHelper(row + i, col, new List<char>(accumulator)); // down
+                DfsHelper(row - i, col, new List<char>(accumulator)); // up
             }
 
             for (int i = col; i < baseList.GetLength(1); i++)
@@ -63,10 +50,10 @@ namespace InterviewTests
             {
                 for (int j = col; j < baseList.GetLength(1); j++)
                 {
-                    DfsHelper(row + i, col + j, new List<char>(accumulator)); // up + right
-                    DfsHelper(row + i, col - j, new List<char>(accumulator)); // up + left
-                    DfsHelper(row - i, col + j, new List<char>(accumulator)); // down + right
-                    DfsHelper(row - i, col - j, new List<char>(accumulator)); // down + left
+                    DfsHelper(row + i, col + j, new List<char>(accumulator)); // down + right
+                    DfsHelper(row + i, col - j, new List<char>(accumulator)); // down + left
+                    DfsHelper(row - i, col + j, new List<char>(accumulator)); // up + right
+                    DfsHelper(row - i, col - j, new List<char>(accumulator)); // up + left
                 }
             }
 
