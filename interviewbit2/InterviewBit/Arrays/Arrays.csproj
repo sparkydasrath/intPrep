@@ -46,7 +46,10 @@
     <Compile Include="AddNumbers.cs" />
     <Compile Include="AdvanceThroughArrayGame.cs" />
     <Compile Include="ArrayPartition.cs" />
+    <Compile Include="BestTimeBuySellStockI.cs" />
+    <Compile Include="BestTimeBuySellStockII.cs" />
     <Compile Include="ContainerWithMostWater.cs" />
+    <Compile Include="ContainsDuplicateI.cs" />
     <Compile Include="DoArrayProblems.cs" />
     <Compile Include="DutchNationalFlag.cs" />
     <Compile Include="FindTheCelebrity.cs" />
@@ -54,6 +57,7 @@
     <Compile Include="FlippingAnImage.cs" />
     <Compile Include="Interval.cs" />
     <Compile Include="LongestIncreasingSequence.cs" />
+    <Compile Include="MaximumSubarray.cs" />
     <Compile Include="MeetingRoomsI.cs" />
     <Compile Include="MeetingRoomsII.cs" />
     <Compile Include="MergeIntervals.cs" />
