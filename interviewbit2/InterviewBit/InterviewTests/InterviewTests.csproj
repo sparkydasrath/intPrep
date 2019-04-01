@@ -53,6 +53,7 @@
     <Compile Include="centerbridge\NumberGenerationStrategy.cs" />
     <Compile Include="centerbridge\NumberLength.cs" />
     <Compile Include="centerbridge\PawnStrategyGeneration.cs" />
+    <Compile Include="Norgate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="centerbridge\QueenStrategyGeneration.cs" />
