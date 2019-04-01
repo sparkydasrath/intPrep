@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annaly.cs" />
     <Compile Include="centerbridge\BishopStrategyGeneration.cs" />
     <Compile Include="centerbridge\Centerbridge.cs" />
     <Compile Include="centerbridge\ValidateParameters.cs" />
