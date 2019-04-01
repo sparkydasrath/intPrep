@@ -68,15 +68,16 @@ namespace Arrays
         public int MaxSubArrayBigOnv2(int[] nums)
         {
             // https://leetcode.com/problems/maximum-subarray/discuss/20211/Accepted-O(n)-solution-in-java
-            int maxSum = 0, res = int.MinValue;
+            int maxSumSoFar = 0;
+            int maxSum = int.MinValue;
             foreach (int num in nums)
             {
-                int sum = maxSum + num;
-                maxSum = Math.Max(sum, num);
-                res = Math.Max(res, maxSum);
+                int sum = maxSumSoFar + num;
+                maxSumSoFar = Math.Max(sum, num);
+                maxSum = Math.Max(maxSum, maxSumSoFar);
             }
 
-            return res;
+            return maxSum;
         }
     }
 }

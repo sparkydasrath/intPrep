@@ -3,7 +3,7 @@
     public class BestTimeBuySellStockII
     {
         /*
-         122. Best Time to Buy and Sell Stock II
+         122. Best Time to Buy and Sell Stock II https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
         Easy
 
         Say you have an array for which the ith element is the price of a given stock on day i.
@@ -34,5 +34,29 @@
         Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
          */
+
+        public int MaxProfit(int[] prices)
+        {
+            // https://leetcode.com/articles/best-time-to-buy-and-sell-stock-ii/#
+            /*
+             Algorithm
+
+                This solution follows the logic used in Approach 2 itself, but with only a slight variation.
+                In this case, instead of looking for every peak following a valley, we can simply go on crawling
+                over the slope and keep on adding the profit obtained from every consecutive transaction.
+                In the end,we will be using the peaks and valleys effectively, but we need not track the costs
+                corresponding to the peaks and valleys along with the maximum profit, but we can directly keep on
+                adding the difference between the consecutive numbers of the array if the second number is larger
+                than the first one, and at the total sum we obtain will be the maximum profit.
+             */
+            if (prices == null || prices.Length == 0) return 0;
+            int maxprofit = 0;
+            for (int i = 1; i < prices.Length; i++)
+            {
+                if (prices[i] > prices[i - 1])
+                    maxprofit += prices[i] - prices[i - 1];
+            }
+            return maxprofit;
+        }
     }
 }
