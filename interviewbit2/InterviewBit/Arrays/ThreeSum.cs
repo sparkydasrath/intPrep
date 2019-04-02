@@ -32,6 +32,7 @@ namespace Arrays
 
         public List<List<int>> ThreeSumCheck(int[] nums)
         {
+            // O(n log(n))
             Array.Sort(nums);
             List<List<int>> result = new List<List<int>>();
 
