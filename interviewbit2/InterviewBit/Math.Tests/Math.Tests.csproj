@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AddNumbersInLinkedListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReverseIntegerTests.cs" />
     <Compile Include="UglyNumberTests.cs" />
   </ItemGroup>
   <ItemGroup>
