@@ -64,6 +64,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="centerbridge\centerbridgeReadme.md" />
+    <None Include="packages.config" />
     <None Include="talan\2019.03.25_talan.pdf" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +81,10 @@
     <Content Include="talan\11.png" />
     <Content Include="talan\12.png" />
     <Content Include="talan\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.10.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.10.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -37,8 +37,9 @@ namespace Arrays
 
         public List<int> MultipleTwoNumbers(List<int> num1, List<int> num2)
         {
-// if (num2.Count > num1.Count) MultipleTwoNumbers(num2, num1); 3 slots + 3 slots = 6 slots in results
-// ex: 123 * 987 = 110700 so the result will be as long as the sum of the two list lengths
+            // if (num2.Count > num1.Count) MultipleTwoNumbers(num2, num1); 3 slots + 3 slots = 6
+            // slots in results
+            // ex: 123 * 987 = 110700 so the result will be as long as the sum of the two list lengths
             List<int> results = Enumerable.Repeat(0, num1.Count + num2.Count).ToList();
 
             // final signage of result
@@ -59,6 +60,8 @@ namespace Arrays
                     results[i + j + 1] = results[i + j + 1] % 10;
                 }
             }
+
+            results[0] *= sign;
 
             return results;
         }

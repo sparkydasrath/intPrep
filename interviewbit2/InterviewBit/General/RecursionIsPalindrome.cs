@@ -4,10 +4,7 @@
     {
         public static bool IsPalindrome(string s)
         {
-            if (s.Length < 2)
-            {
-                return true;
-            }
+            if (s.Length < 2) return true;
 
             char first = s[0];
             char last = s[s.Length - 1];

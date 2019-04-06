@@ -22,7 +22,8 @@ namespace General
 
         public void Add(CacheItem<TK, TV> ci)
         {
-            // check if you exceed the size of the dictionary first
+            /* check if you exceed the size of the dictionary first */
+            // ! would prob need a lock around // all this to make it thread safe
             if (dictionary.Count >= size)
             {
                 // need to remove the LRU item from the linked list and from the cache
@@ -33,7 +34,7 @@ namespace General
 
             // create new linked list node
             LinkedListNode<CacheItem<TK, TV>> lin = new LinkedListNode<CacheItem<TK, TV>>(ci);
-            // append to end of linked list
+            // append to head of linked list
             linkedList.AddFirst(lin);
             dictionary.Add(ci.Key, lin);
         }
@@ -45,7 +46,7 @@ namespace General
                 // the item in in the cache so return it
                 TV value = node.Value.Value;
 
-                // update the list and move this node to the back of the list
+                // update the list and move this node to the head of the list
                 linkedList.Remove(node);
                 linkedList.AddFirst(node);
                 return value;

@@ -6,7 +6,7 @@ namespace Arrays
     {
         private static void Main(string[] args)
         {
-            int[] a = new int[] { 1, 2 };
+            int[] a = new[] { 1, 2 };
             int z = 0;
             foreach (int i in a)
             {
