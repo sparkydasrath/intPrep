@@ -50,6 +50,7 @@
     <Compile Include="BestTimeBuySellStockII.cs" />
     <Compile Include="ContainerWithMostWater.cs" />
     <Compile Include="ContainsDuplicateI.cs" />
+    <Compile Include="ContainsDuplicateII.cs" />
     <Compile Include="DoArrayProblems.cs" />
     <Compile Include="DutchNationalFlag.cs" />
     <Compile Include="FindTheCelebrity.cs" />
