@@ -62,6 +62,7 @@
     <Compile Include="MeetingRoomsII.cs" />
     <Compile Include="MergeIntervals.cs" />
     <Compile Include="MergeIntervalsBetter.cs" />
+    <Compile Include="MergeTwoSortedArrays.cs" />
     <Compile Include="MinArrowsToBurstBalloons.cs" />
     <Compile Include="MultiplyNumbers.cs" />
     <Compile Include="NextPermutation.cs" />

@@ -61,6 +61,7 @@
     <Compile Include="MaximumSubarrayTests.cs" />
     <Compile Include="MeetingRoomsTests.cs" />
     <Compile Include="MergeIntervalsTests.cs" />
+    <Compile Include="MergeTwoSortedArraysTests.cs" />
     <Compile Include="MinArrowsToBurstBalloonsTests.cs" />
     <Compile Include="MultiplyNumbersTests.cs" />
     <Compile Include="NextPermutationTests.cs" />
