@@ -65,11 +65,11 @@
                 {
                     result = mid;
 
-                    // go on searching towards left (lower indices)
+                    // go on searching towards left (lower indices) to find first occurence
                     if (searchFirst)
                         high = mid - 1;
 
-                    // go on searching towards right (higher indices)
+                    // go on searching towards right (higher indices) to find last occurence
                     else
                         low = mid + 1;
                 }
