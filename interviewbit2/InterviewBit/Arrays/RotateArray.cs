@@ -8,8 +8,8 @@
          *
            Search an element in a sorted and rotated array
 
-           An element in a sorted array can be found in O(log n) time via binary search.
-           But suppose we rotate an ascending order sorted array at some pivot unknown to you beforehand. So for instance, 1 2 3 4 5 might become 3 4 5 1 2. Devise a way to find an element in the rotated array in O(log n) time.
+           An element in a sorted array can be found in O(log nums) time via binary search.
+           But suppose we rotate an ascending order sorted array at some pivot unknown to you beforehand. So for instance, 1 2 3 4 5 might become 3 4 5 1 2. Devise a way to find an element in the rotated array in O(log nums) time.
 
            Input  : arr[] = {5, 6, 7, 8, 9, 10, 1, 2, 3};
            key = 3
@@ -29,22 +29,46 @@
 
         */
 
-        public int FindPivotIndex(int s, int e, int[] n)
+        public int FindPivotIndex(int start, int end, int[] nums)
         {
-            int mid = (s + e) / 2;
+            int mid = (start + end) / 2;
 
-            if (n[mid] > n[s])
+            if (nums[mid] > nums[start])
             {
                 // pivot is in the second half
-                return FindPivotIndex(mid + 1, e, n);
+                return FindPivotIndex(mid + 1, end, nums);
             }
 
-            if (n[mid] < n[s])
+            if (nums[mid] < nums[start])
             {
                 // pivot is in first half
-                return FindPivotIndex(s, mid - 1, n);
+                return FindPivotIndex(start, mid - 1, nums);
             }
             return mid + 1; // found pivot
+        }
+
+        public int FindPivotIndexNonRecursive(int[] nums)
+        {
+            // https://www.youtube.com/embed/ggLGjf_XiNQ?rel=0&showinfo=0
+            if (nums == null || nums.Length == 0) return -1;
+
+            // case when array is not rotated
+            if (nums[0] <= nums[nums.Length - 1]) return nums[0];
+
+            int start = 0;
+            int end = nums.Length - 1;
+            while (start <= end)
+            {
+                int mid = (start + end) / 2;
+
+                if (nums[mid] > nums[mid + 1]) return mid + 1; // found pivot
+
+                if (nums[start] <= nums[mid])
+                    start = mid + 1;  // result in second half
+                else end = mid - 1; // result in first half
+            }
+
+            return 0;
         }
     }
 

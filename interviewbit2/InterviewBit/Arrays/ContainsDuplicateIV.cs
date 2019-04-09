@@ -21,12 +21,13 @@
 
         // Returns index of second appearance of a repeating element. The function assumes that array
         // elements are in range from 1 to n-1.
-        public int FindRepeatingElement(int[] arr, int low, int high)
+        public int FindSecondDuplicate(int[] arr, int low, int high)
         {
             // low = 0 , high = n-1;
             if (low > high) return -1;
 
             int mid = (low + high) / 2;
+            int m1 = mid + 1;
 
             // Check if the mid element is the repeating one
             int valAtMid = arr[mid];
@@ -35,63 +36,18 @@
                 if (mid > 0 && arr[mid] == arr[mid - 1]) return mid;
 
                 // If mid element is not at its position that means the repeated element is in left
-                return FindRepeatingElement(arr, low, mid - 1);
+                return FindSecondDuplicate(arr, low, mid - 1);
             }
 
             // If mid is at proper position then repeated one is in right.
-            return FindRepeatingElement(arr, mid + 1, high);
+            return FindSecondDuplicate(arr, mid + 1, high);
         }
 
-        // Function to find first or last occurrence of a given number in sorted array of integers.
-        // If searchFirst is true, we return the first occurrence of the number else we return its
-        // last occurrence
-        private int BinarySearch(int[] nums, int arrayLength, int x, bool searchFirst)
-        {
-            // https://www.techiedelight.com/count-occurrences-number-sorted-array-duplicates/ search
-            // space is nums[low..high]
-            int low = 0, high = arrayLength - 1;
-
-            // initialize the result by -1
-            int result = -1;
-
-            // iterate till search space contains at-least one element
-            while (low <= high)
-            {
-                // find the mid value in the search space and compares it with target value
-                int mid = (low + high) / 2;
-
-                // if target is found, update the result
-                if (x == nums[mid])
-                {
-                    result = mid;
-
-                    // go on searching towards left (lower indices) to find first occurence
-                    if (searchFirst)
-                        high = mid - 1;
-
-                    // go on searching towards right (higher indices) to find last occurence
-                    else
-                        low = mid + 1;
-                }
-
-                // if target is less than the mid element, discard right half
-                else if (x < nums[mid])
-                    high = mid - 1;
-
-                // if target is more than the mid element, discard left half
-                else
-                    low = mid + 1;
-            }
-
-            // return the found index or -1 if the element is not found
-            return result;
-        }
-
-        private int SearchDupes(int[] array, int n, int element)
+        public int SearchDupes(int[] array, int element)
         {
             // https://programmingpraxis.com/2017/11/07/binary-search-with-duplicates/
             int lo = 0;
-            int hi = n;
+            int hi = array.Length - 1;
             int output = -1;
             while (hi > lo)
             {
@@ -108,6 +64,52 @@
                 }
             }
             return output;
+        }
+
+        // Function to find first or last occurrence of a given number in sorted array of integers.
+        // If searchFirst is true, we return the first occurrence of the number else we return its
+        // last occurrence
+        private int FindFirstOrLastRepeatingElement(int[] nums, int valueToFind, bool searchFirst)
+        {
+            // https://www.techiedelight.com/count-occurrences-number-sorted-array-duplicates/ search
+            // space is nums[low..high]
+            int lo = 0;
+            int hi = nums.Length - 1;
+
+            // initialize the result by -1
+            int result = -1;
+
+            // iterate till search space contains at-least one element
+            while (lo <= hi)
+            {
+                // find the mid value in the search space and compares it with target value
+                int mid = (lo + hi) / 2;
+
+                // if target is found, update the result
+                if (valueToFind == nums[mid])
+                {
+                    result = mid;
+
+                    // go on searching towards left (lower indices) to find first occurence
+                    if (searchFirst)
+                        hi = mid - 1;
+
+                    // go on searching towards right (higher indices) to find last occurence
+                    else
+                        lo = mid + 1;
+                }
+
+                // if target is less than the mid element, discard right half
+                else if (valueToFind < nums[mid])
+                    hi = mid - 1;
+
+                // if target is more than the mid element, discard left half
+                else
+                    lo = mid + 1;
+            }
+
+            // return the found index or -1 if the element is not found
+            return result;
         }
     }
 }

@@ -27,7 +27,7 @@ public class ContainsDuplicateIII
 
      */
 
-    public string ContainsDuplicate(int[] arr)
+    public string ContainsDuplicateConstantSpace(int[] arr)
     {
         StringBuilder sb = new StringBuilder();
 

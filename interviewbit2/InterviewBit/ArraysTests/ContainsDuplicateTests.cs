@@ -10,7 +10,7 @@ namespace ArraysTests
         public string ContainsDuplicateConstantSpace(int[] nums)
         {
             ContainsDuplicateIII c = new ContainsDuplicateIII();
-            string result = c.ContainsDuplicate(nums);
+            string result = c.ContainsDuplicateConstantSpace(nums);
             return result;
         }
 
@@ -25,11 +25,19 @@ namespace ArraysTests
         }
 
         [TestCase(new[] { 1, 2, 3, 4, 4 }, ExpectedResult = 4)]
-        [TestCase(new[] { 4, 5, 6, 6, 6, 7, 8, 9 }, ExpectedResult = 3)]
+        [TestCase(new[] { 40, 50, 60, 60, 60, 70, 80, 90 }, ExpectedResult = 3)]
         public int FindRepeatingElement(int[] nums)
         {
             ContainsDuplicateIV c = new ContainsDuplicateIV();
-            int result = c.FindRepeatingElement(nums, 0, nums.Length - 1);
+            int result = c.FindSecondDuplicate(nums, 0, nums.Length - 1);
+            return result;
+        }
+
+        [TestCase(new[] { 1, 2, 3, 4, 4 }, ExpectedResult = 3)]
+        public int SearchDupes(int[] nums)
+        {
+            ContainsDuplicateIV c = new ContainsDuplicateIV();
+            int result = c.SearchDupes(nums, 4);
             return result;
         }
     }
