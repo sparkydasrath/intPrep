@@ -101,6 +101,11 @@ namespace Backtracking
             return results;
         }
 
+        public List<string> RemoveInvalidParenthesesDfs(string s)
+        {
+            return null;
+        }
+
         private bool IsValid(string s)
         {
             /* the trick to finding valid parenthesis

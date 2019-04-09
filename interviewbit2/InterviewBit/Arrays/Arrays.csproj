@@ -61,6 +61,7 @@
     <Compile Include="Interval.cs" />
     <Compile Include="LongestIncreasingSequence.cs" />
     <Compile Include="MaximumSumSubarray.cs" />
+    <Compile Include="MedianOfTwoSortedArrays.cs" />
     <Compile Include="MeetingRoomsI.cs" />
     <Compile Include="MeetingRoomsII.cs" />
     <Compile Include="MergeIntervals.cs" />

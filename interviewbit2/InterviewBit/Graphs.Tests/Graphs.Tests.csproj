@@ -50,6 +50,7 @@
     <Compile Include="ConnectedComponentsTests.cs" />
     <Compile Include="DetectCycleTests.cs" />
     <Compile Include="GraphTests.cs" />
+    <Compile Include="MinimizeMalwareSpreadTests.cs" />
     <Compile Include="NetworkDelayTimeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

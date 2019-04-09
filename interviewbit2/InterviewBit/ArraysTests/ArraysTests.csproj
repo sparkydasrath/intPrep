@@ -59,6 +59,7 @@
     <Compile Include="FlippingAnImageTests.cs" />
     <Compile Include="LongestIncreasingSequenceTests.cs" />
     <Compile Include="MaximumSubarrayTests.cs" />
+    <Compile Include="MedianOfTwoSortedArraysTests.cs" />
     <Compile Include="MeetingRoomsTests.cs" />
     <Compile Include="MergeIntervalsTests.cs" />
     <Compile Include="MergeTwoSortedArraysTests.cs" />

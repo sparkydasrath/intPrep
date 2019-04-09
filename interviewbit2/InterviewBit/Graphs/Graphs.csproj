@@ -53,6 +53,7 @@
     <Compile Include="DetectCycle.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="GraphNode.cs" />
+    <Compile Include="MinimizeMalwareSpread.cs" />
     <Compile Include="NetworkDelayTime.cs" />
     <Compile Include="NodePosition.cs" />
     <Compile Include="Program.cs" />
