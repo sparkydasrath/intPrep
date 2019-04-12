@@ -28,20 +28,20 @@ namespace Arrays
         public int MaxArea(int[] heights)
         {
             if (heights.Length <= 1) return 0;
-            int leftPointer = 0;
-            int rightPointer = heights.Length - 1;
+            int left = 0;
+            int right = heights.Length - 1;
             int maxArea = 0;
 
-            while (leftPointer < rightPointer)
+            while (left < right)
             {
-                int width = rightPointer - leftPointer;
-                int height = Math.Min(heights[leftPointer], heights[rightPointer]);
+                int width = right - left;
+                int height = Math.Min(heights[left], heights[right]);
                 int area = GetArea(width, height);
 
                 if (area > maxArea) maxArea = area;
 
-                if (heights[leftPointer] < heights[rightPointer]) leftPointer++;
-                else rightPointer--;
+                if (heights[left] < heights[right]) left++;
+                else right--;
             }
 
             return maxArea;

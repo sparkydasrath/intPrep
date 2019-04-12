@@ -23,8 +23,6 @@
         public void NextPerm(int[] nums)
         {
             if (nums.Length == 1) return;
-
-            if (nums.Length == 1) return;
             /*
 
                 nums = 1 2 3 6 5 8

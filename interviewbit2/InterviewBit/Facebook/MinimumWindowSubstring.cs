@@ -35,12 +35,10 @@ namespace Facebook
              */
 
             if (string.IsNullOrWhiteSpace(s) ||
-            string.IsNullOrWhiteSpace(t) ||
-            s.Length == 0 ||
-            t.Length == 0 ||
-            s.Length < t.Length
-
-            )
+                string.IsNullOrWhiteSpace(t) ||
+                s.Length == 0 ||
+                t.Length == 0 ||
+                s.Length < t.Length)
             {
                 return string.Empty;
             }

@@ -35,7 +35,8 @@
 
             if (nums[mid] > nums[start])
             {
-                // pivot is in the second half
+                // ! this is saying that if the mid > start then all elements ! from the start to the
+                // ! mid is ALREADY SORTED so the pivot is in the second half
                 return FindPivotIndex(mid + 1, end, nums);
             }
 

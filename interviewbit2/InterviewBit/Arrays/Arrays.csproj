@@ -60,6 +60,7 @@
     <Compile Include="FlippingAnImage.cs" />
     <Compile Include="Interval.cs" />
     <Compile Include="LongestIncreasingSequence.cs" />
+    <Compile Include="MaximumProductSubarray.cs" />
     <Compile Include="MaximumSumSubarray.cs" />
     <Compile Include="MedianOfTwoSortedArrays.cs" />
     <Compile Include="MeetingRoomsI.cs" />

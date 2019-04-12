@@ -96,7 +96,8 @@ namespace Backtracking
              216. Combination Sum III https://leetcode.com/problems/combination-sum-iii/
             Medium
 
-            Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
+            Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9
+            can be used and each combination should be a unique set of numbers.
 
             Note:
 
@@ -144,7 +145,7 @@ namespace Backtracking
         private void CombinationSumHelper2(int[] candidates, int target, List<int> accumulator, int start)
         {
             //combo sum 2
-            // see LC
+            // https://leetcode.com/problems/combination-sum-ii/
             if (accumulator.Sum() == target)
             {
                 results.Add(accumulator);
@@ -164,6 +165,7 @@ namespace Backtracking
 
         private void CombinationSumHelper3(int[] candidates, int target, List<int> accumulator, int start, int k)
         {
+            // https://leetcode.com/problems/combination-sum-iii/
             if (accumulator.Sum() == target && accumulator.Count == k)
             {
                 results.Add(accumulator);

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Facebook
 {
@@ -22,7 +19,7 @@ namespace Facebook
 
                 if (char.IsDigit(curr))
                 {
-                    /* 
+                    /*
                     If the current item is a number, just convert the char to a number
                     and use it later based on the sign
                     */
@@ -31,7 +28,7 @@ namespace Facebook
 
                 if (!char.IsDigit(curr) || i == s.Length - 1)
                 {
-                    // at this point the char has to be a digit
+                    // at this point the char has to be a digit and the next char is sign
 
                     if (currSign == '+')
                     {
@@ -57,7 +54,6 @@ namespace Facebook
 
                     currSign = curr;
                     curNum = 0;
-
                 }
             }
             return stack.Sum();

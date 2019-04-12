@@ -38,33 +38,25 @@ namespace Arrays
                 if (dir == 0)
                 {
                     for (int i = leftCol; i <= rightCol; i++)
-                    {
                         results.Add(m[topRow, i]);
-                    }
                     topRow++;
                 }
                 else if (dir == 1)
                 {
                     for (int i = topRow; i <= botRow; i++)
-                    {
                         results.Add(m[i, rightCol]);
-                    }
                     rightCol--;
                 }
                 else if (dir == 2)
                 {
                     for (int i = rightCol; i >= leftCol; i--)
-                    {
                         results.Add(m[botRow, i]);
-                    }
                     botRow--;
                 }
                 else if (dir == 3)
                 {
                     for (int i = botRow; i >= topRow; i--)
-                    {
                         results.Add(m[i, leftCol]);
-                    }
                     leftCol++;
                 }
 

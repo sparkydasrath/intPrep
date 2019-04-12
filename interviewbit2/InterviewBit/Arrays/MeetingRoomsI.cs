@@ -37,9 +37,7 @@ namespace Arrays
             Interval[] sorted = intervals.OrderBy(s => s.start).ThenBy(e => e.end).ToArray();
 
             for (int i = 1; i < sorted.Length; i++)
-            {
                 if (sorted[i].start < sorted[i - 1].end) return false;
-            }
 
             return true;
         }

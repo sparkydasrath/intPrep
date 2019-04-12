@@ -28,7 +28,7 @@ namespace General
             {
                 // need to remove the LRU item from the linked list and from the cache
                 LinkedListNode<CacheItem<TK, TV>> nodeToUnCache = GetNodeToUnCache();
-                RemoveNodeFromList();
+                RemoveNodeFromBackOfList();
                 RemoveFromCache(nodeToUnCache.Value.Key);
             }
 
@@ -52,13 +52,13 @@ namespace General
                 return value;
             }
 
-            return default(TV);
+            return default;
         }
 
         private LinkedListNode<CacheItem<TK, TV>> GetNodeToUnCache() => linkedList.Last;
 
         private void RemoveFromCache(TK key) => dictionary.Remove(key);
 
-        private void RemoveNodeFromList() => linkedList.RemoveLast();
+        private void RemoveNodeFromBackOfList() => linkedList.RemoveLast();
     }
 }

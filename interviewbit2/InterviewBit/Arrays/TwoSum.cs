@@ -47,23 +47,23 @@ namespace Arrays
         public int[] TwoSumCheckWithDictionary(int[] nums, int target)
         {
             // store the number as the key and the index as the value
-            Dictionary<int, int> temp = new Dictionary<int, int>();
+            Dictionary<int, int> dictionary = new Dictionary<int, int>();
 
             int[] result = new int[2];
 
             for (int i = 0; i < nums.Length; i++)
             {
                 int next = target - nums[i];
-                if (temp.ContainsKey(next))
+                if (dictionary.ContainsKey(next))
                 {
                     // if the target minus current value is in the dictionary then it's complement
                     // was already in there
-                    result[0] = temp[next];
+                    result[0] = dictionary[next];
                     result[1] = i;
                 }
                 else
                 {
-                    temp[nums[i]] = i;
+                    dictionary[nums[i]] = i;
                 }
             }
 

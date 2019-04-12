@@ -284,7 +284,7 @@ namespace Backtracking
 
     public class Permute2
     {
-        // PERMUTE ALWAYS needs a visited array - this implemention is wrong
+        // !PERMUTE ALWAYS needs a visited array - this implementation is wrong
         private IList<IList<int>> results = new List<IList<int>>();
 
         public IList<IList<int>> Permute(int[] nums)
