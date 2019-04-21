@@ -59,15 +59,12 @@ namespace InterviewTests
 
         private static void Main(string[] args)
         {
-            Program p = new Program();
-            p.Permute("abc");
+            // Program p = new Program(); p.Permute("abc");
+            //
+            // foreach (var r in results) Console.WriteLine(string.Join("", r));
+            //
+            // p.Combine("abc"); foreach (var r in results) Console.WriteLine(string.Join("", r));
 
-            foreach (var r in results)
-                Console.WriteLine(string.Join("", r));
-
-            p.Combine("abc");
-            foreach (var r in results)
-                Console.WriteLine(string.Join("", r));
             Console.ReadLine();
         }
     }
