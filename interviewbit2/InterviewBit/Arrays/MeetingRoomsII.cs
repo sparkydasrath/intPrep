@@ -10,7 +10,8 @@ namespace Arrays
          * 253. Meeting Rooms II https://leetcode.com/problems/meeting-rooms-ii/
         Medium
 
-        Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), find the minimum number of conference rooms required.
+        Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei),
+        find the minimum number of conference rooms required.
 
         Example 1:
 

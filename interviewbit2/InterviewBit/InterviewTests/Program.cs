@@ -28,6 +28,19 @@ namespace InterviewTests
             }
         }
 
+        public int Do()
+        {
+            try
+            {
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+            }
+        }
+
         public void Permute(string s)
         {
             visited = new bool[s.Length];

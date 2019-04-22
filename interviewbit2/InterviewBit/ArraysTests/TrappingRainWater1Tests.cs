@@ -11,8 +11,8 @@ namespace ArraysTests
         public void ShouldReturnTotalArea()
         {
             int[] input = new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
-            TrappingRainWater1 trappingRainWater1 = new TrappingRainWater1();
-            int result = trappingRainWater1.GetTotalAmountOfWater(input);
+            TrappingRainWater trappingRainWater = new TrappingRainWater();
+            int result = trappingRainWater.GetTotalAmountOfWater(input);
             Assert.That(result, Is.EqualTo(6));
         }
     }

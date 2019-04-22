@@ -61,14 +61,10 @@ namespace Amazon
                 bool isFromAChildOfRoot = root.Nodes.Contains(from);
                 bool isToAChildOfRoot = root.Nodes.Contains(to);
 
-                bool isToAChildOfFrom = from.Nodes.Contains(to);
+                if (isFromAChildOfRoot && isToAChildOfRoot) return false;
 
-                if (isToAChildOfFrom) return true;
-                else return false;
-
-                // if (isFromAChildOfRoot && isToAChildOfRoot) { // if they are both children of
-                // root, then that will form a cycle so return false /* root / | \ / | \ / | \ from B
-                // to | ^ cycle here |--------------|
+                // if they are both children of root, then that will form a cycle so return false /*
+                // root / | \ / | \ / | \ from B to | ^ cycle here |--------------|
                 // */
                 //
                 // return false; }
@@ -79,6 +75,11 @@ namespace Amazon
                 // not really a cycle, just you now have 2 paths to get to the 'to' node - not sure
                 // what to return here
                 // */ return true; // gonna say it's all good }
+
+                bool isToAChildOfFrom = from.Nodes.Contains(to);
+
+                if (isToAChildOfFrom) return true;
+                else return false;
             }
 
             return true;

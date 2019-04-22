@@ -78,7 +78,7 @@
     <Compile Include="SpiralMatrix.cs" />
     <Compile Include="SpiralMatrixFb.cs" />
     <Compile Include="ThreeSum.cs" />
-    <Compile Include="TrappingRainWater1.cs" />
+    <Compile Include="TrappingRainWater.cs" />
     <Compile Include="TwoSum.cs" />
   </ItemGroup>
   <ItemGroup>

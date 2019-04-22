@@ -6,7 +6,7 @@ namespace TwoPointers
     {
         /*
          * Problem 4: Given a sorted array that have repeating numbers, remove the duplicates in place
-	    • Ex: Input = [1 2 4 4 9 9 9 9], output = [1 2 4 9 0 0 0 0]
+        • Ex: Input = [1 2 4 4 9 9 9 9], output = [1 2 4 9 0 0 0 0]
 
          */
 
@@ -27,45 +27,45 @@ namespace TwoPointers
 
             if (nums.Length < 2) return nums;
 
-            int head = 0;
-            int tail = head + 1;
+            int tail = 0;
+            int head = tail + 1;
             int[] results = new int[nums.Length];
             Array.Copy(nums, results, nums.Length);
 
-            while (head < results.Length && tail < results.Length)
+            while (tail < results.Length && head < results.Length)
             {
                 // case 1
-                if (results[head] < results[tail])
+                if (results[tail] < results[head])
                 {
-                    head++;
                     tail++;
+                    head++;
                 }
 
                 // case 2
-                else if (results[head] == results[tail])
+                else if (results[tail] == results[head])
                 {
-                    /* fix head, advance tail
+                    /* fix head, advance head
                     two sub cases:
-                    1. advance tail until we find another number greater than head or
+                    1. advance head until we find another number greater than tail or
                     2. if we reach end of array, need to zero out remaining elements
                     */
 
-                    tail++;
+                    head++;
 
                     // case 1 found element greater than head & tail is < results.Length
 
-                    if (tail == results.Length)
+                    if (head == results.Length)
                     {
                         // did not find anything else greater than current head, so zero everything out
-                        for (int i = head + 1; i < nums.Length; i++) results[i] = 0;
+                        for (int i = tail + 1; i < nums.Length; i++) results[i] = 0;
                         break;
                     }
 
-                    if (results[head] < results[tail])
+                    if (results[tail] < results[head])
                     {
                         // replace head + 1 and move head
-                        results[head + 1] = results[tail];
-                        head++;
+                        results[tail + 1] = results[head];
+                        tail++;
                     }
                 }
             }
