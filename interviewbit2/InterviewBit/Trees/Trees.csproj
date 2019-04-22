@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryTreeZigzagLevelOrderTraversal.cs" />
     <Compile Include="CheckBalanced.cs" />
     <Compile Include="ConstructBTFromPreorderAndInorder.cs" />
     <Compile Include="ConstructTrees.cs" />

@@ -19,6 +19,52 @@
 
          */
 
+        // Function to find first or last occurrence of a given number in sorted array of integers.
+        // If searchFirst is true, we return the first occurrence of the number else we return its
+        // last occurrence
+        public int FindFirstOrLastRepeatingElement(int[] nums, int valueToFind, bool searchFirst)
+        {
+            // https://www.techiedelight.com/count-occurrences-number-sorted-array-duplicates/ search
+            // space is nums[low..high]
+            int lo = 0;
+            int hi = nums.Length - 1;
+
+            // initialize the result by -1
+            int result = -1;
+
+            // iterate till search space contains at-least one element
+            while (lo <= hi)
+            {
+                // find the mid value in the search space and compares it with target value
+                int mid = (lo + hi) / 2;
+
+                // if target is found, update the result
+                if (valueToFind == nums[mid])
+                {
+                    result = mid;
+
+                    // go on searching towards left (lower indices) to find first occurence
+                    if (searchFirst)
+                        hi = mid - 1;
+
+                    // go on searching towards right (higher indices) to find last occurence
+                    else
+                        lo = mid + 1;
+                }
+
+                // if target is less than the mid element, discard right half
+                else if (valueToFind < nums[mid])
+                    hi = mid - 1;
+
+                // if target is more than the mid element, discard left half
+                else
+                    lo = mid + 1;
+            }
+
+            // return the found index or -1 if the element is not found
+            return result;
+        }
+
         // Returns index of second appearance of a repeating element. The function assumes that array
         // elements are in range from 1 to n-1.
         public int FindSecondDuplicate(int[] arr, int low, int high)
@@ -64,52 +110,6 @@
                 }
             }
             return output;
-        }
-
-        // Function to find first or last occurrence of a given number in sorted array of integers.
-        // If searchFirst is true, we return the first occurrence of the number else we return its
-        // last occurrence
-        private int FindFirstOrLastRepeatingElement(int[] nums, int valueToFind, bool searchFirst)
-        {
-            // https://www.techiedelight.com/count-occurrences-number-sorted-array-duplicates/ search
-            // space is nums[low..high]
-            int lo = 0;
-            int hi = nums.Length - 1;
-
-            // initialize the result by -1
-            int result = -1;
-
-            // iterate till search space contains at-least one element
-            while (lo <= hi)
-            {
-                // find the mid value in the search space and compares it with target value
-                int mid = (lo + hi) / 2;
-
-                // if target is found, update the result
-                if (valueToFind == nums[mid])
-                {
-                    result = mid;
-
-                    // go on searching towards left (lower indices) to find first occurence
-                    if (searchFirst)
-                        hi = mid - 1;
-
-                    // go on searching towards right (higher indices) to find last occurence
-                    else
-                        lo = mid + 1;
-                }
-
-                // if target is less than the mid element, discard right half
-                else if (valueToFind < nums[mid])
-                    hi = mid - 1;
-
-                // if target is more than the mid element, discard left half
-                else
-                    lo = mid + 1;
-            }
-
-            // return the found index or -1 if the element is not found
-            return result;
         }
     }
 }

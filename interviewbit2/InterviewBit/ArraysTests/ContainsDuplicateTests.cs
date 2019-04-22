@@ -40,5 +40,13 @@ namespace ArraysTests
             int result = c.SearchDupes(nums, 4);
             return result;
         }
+
+        [TestCase(new[] { 1, 2, 3, 4, 4 }, ExpectedResult = 4)]
+        public int SearchDupes1(int[] nums)
+        {
+            ContainsDuplicateIV c = new ContainsDuplicateIV();
+            int result = c.FindFirstOrLastRepeatingElement(nums, 4, false);
+            return result;
+        }
     }
 }
