@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Annaly.cs" />
+    <Compile Include="Blackstone\ReverseKthNumbers.cs" />
     <Compile Include="centerbridge\BishopStrategyGeneration.cs" />
     <Compile Include="centerbridge\Centerbridge.cs" />
     <Compile Include="centerbridge\ValidateParameters.cs" />
@@ -68,6 +69,8 @@
     <None Include="talan\2019.03.25_talan.pdf" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Blackstone\cashRegister.jpeg" />
+    <Content Include="Blackstone\reverseKthNumber.jpeg" />
     <Content Include="talan\01.png" />
     <Content Include="talan\02.png" />
     <Content Include="talan\03.png" />
