@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnnalyTests.cs" />
+    <Compile Include="Blackstone\CashRegisterTests.cs" />
     <Compile Include="Blackstone\ReverseKthNumbersTests.cs" />
     <Compile Include="StrategyTests.cs" />
     <Compile Include="NumberGenerationStrategyMock.cs" />

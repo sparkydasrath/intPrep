@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Annaly.cs" />
+    <Compile Include="Blackstone\CashRegister.cs" />
     <Compile Include="Blackstone\ReverseKthNumbers.cs" />
     <Compile Include="centerbridge\BishopStrategyGeneration.cs" />
     <Compile Include="centerbridge\Centerbridge.cs" />
