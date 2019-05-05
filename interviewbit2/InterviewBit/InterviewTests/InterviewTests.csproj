@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Annaly.cs" />
     <Compile Include="Blackstone\CashRegister.cs" />
+    <Compile Include="Blackstone\Denominations.cs" />
+    <Compile Include="Blackstone\Question2.cs" />
+    <Compile Include="Blackstone\Question1.cs" />
+    <Compile Include="Blackstone\Question3.cs" />
     <Compile Include="Blackstone\ReverseKthNumbers.cs" />
     <Compile Include="centerbridge\BishopStrategyGeneration.cs" />
     <Compile Include="centerbridge\Centerbridge.cs" />
@@ -71,6 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Blackstone\cashRegister.jpeg" />
+    <Content Include="Blackstone\q1.png" />
+    <Content Include="Blackstone\q2.png" />
+    <Content Include="Blackstone\q3a.png" />
+    <Content Include="Blackstone\q3b.png" />
     <Content Include="Blackstone\reverseKthNumber.jpeg" />
     <Content Include="talan\01.png" />
     <Content Include="talan\02.png" />

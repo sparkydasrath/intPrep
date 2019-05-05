@@ -5,29 +5,8 @@ using System.Text;
 
 namespace InterviewTests.Blackstone
 {
-    public struct NumbersAndK
+    public class Question2
     {
-        // prefer this over using Item1, Item2 in Tuple
-        public int K { get; set; }
-
-        public string Numbers { get; set; }
-    }
-
-    public class ReverseKthNumbers
-    {
-        // this is the question 2
-
-        /*
-            Programming Challenge Description:
-            Given a list of numbers and a positive integer k, reverse the elements of the list, k items at a time.
-            If the number of elements is not a multiple of k, then the remaining items in the end should be left as is.
-            Input:
-            Your program should read lines from standard input. Each line contains a list of numbers and the number k,
-            separated by a semicolon. The list of numbers are comma delimited.
-            Output:
-            Print out the new comma separated list of numbers obtained after reversing.
-         */
-
         public string ReverseKth(string input)
         {
             if (string.IsNullOrWhiteSpace(input)) return null;

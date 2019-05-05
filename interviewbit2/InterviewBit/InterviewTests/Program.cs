@@ -1,6 +1,7 @@
-﻿using InterviewTests.Blackstone;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using InterviewTests.Blackstone;
 
 namespace InterviewTests
 {
@@ -60,21 +61,17 @@ namespace InterviewTests
 
         private static void Main(string[] args)
         {
-            // Program p = new Program(); p.Permute("abc");
-            //
-            // foreach (var r in results) Console.WriteLine(string.Join("", r));
-            //
-            // p.Combine("abc"); foreach (var r in results) Console.WriteLine(string.Join("", r));
+            string l1 = string.Empty;
+            string l2 = string.Empty;
 
-            Dictionary<int, int> d = new Dictionary<int, int>(64);
-            // d[1] = 1; d[2] = 1; d[3] = 1; d[4] = 1; d[5] = 1; d[6] = 1; d[7] = 1; d[8] = 1;
-
-            var x = new Denominations().DefaultDenominations;
-
-            x.Add(200m, "two hun");
-            x.Remove(200m);
-
-            Console.ReadLine();
+            using (StreamReader reader = new StreamReader(Console.OpenStandardInput()))
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+                    Question2 q2 = new Question2();
+                    var result = q2.ReverseKth(line);
+                    Console.WriteLine(result);
+                }
         }
     }
 }

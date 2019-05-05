@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace InterviewTests.Tests.Blackstone
 {
     [TestFixture]
-    public class CashRegisterTests
+    public class Question3Tests
     {
         [TestCase("15.94;16.00", ExpectedResult = "NICKEL,PENNY")]
         [TestCase("17;16", ExpectedResult = "ERROR")]
@@ -12,7 +12,7 @@ namespace InterviewTests.Tests.Blackstone
         [TestCase("45;50", ExpectedResult = "FIVE")]
         public string ShouldReturnCorrectChange(string input)
         {
-            CashRegister cr = new CashRegister();
+            Question3 cr = new Question3();
             string result = cr.GetChange(input);
             return result;
         }
