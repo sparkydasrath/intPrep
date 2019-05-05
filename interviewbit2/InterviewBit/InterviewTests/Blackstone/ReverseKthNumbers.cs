@@ -49,11 +49,9 @@ namespace InterviewTests.Blackstone
         {
             NumbersAndK nAndk = new NumbersAndK();
 
-            string[] firstParse = numsAndk.Split(';');
-            string numsAsString = firstParse[0].Replace(",", string.Empty);
-            string[] nums = firstParse[0].Split(',');
-            string k = firstParse[1];
-            // int[] numsArray = nums.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+            string[] split = numsAndk.Split(';');
+            string numsAsString = split[0].Replace(",", string.Empty);
+            string k = split[1];
 
             return new NumbersAndK { Numbers = numsAsString, K = Convert.ToInt32(k) };
         }
