@@ -10,6 +10,8 @@ namespace InterviewTests.Tests.Blackstone
         [TestCase("1,2,3,4,5;3", ExpectedResult = "3,2,1,4,5")]
         [TestCase("1,2,3,4,5;5", ExpectedResult = "5,4,3,2,1")]
         [TestCase("1,2,3,4,5;4", ExpectedResult = "4,3,2,1,5")]
+        [TestCase("1,2,3,4,5,6;3", ExpectedResult = "3,2,1,6,5,4")]
+        [TestCase("1,2;3", ExpectedResult = "1,2")]
         public string SholdReturnReversedList(string numsAndk)
         {
             ReverseKthNumbers r = new ReverseKthNumbers();

@@ -52,7 +52,6 @@ namespace InterviewTests.Blackstone
             string[] split = numsAndk.Split(';');
             string numsAsString = split[0].Replace(",", string.Empty);
             string k = split[1];
-
             return new NumbersAndK { Numbers = numsAsString, K = Convert.ToInt32(k) };
         }
     }
