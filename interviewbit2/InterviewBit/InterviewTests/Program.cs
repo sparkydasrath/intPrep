@@ -68,8 +68,8 @@ namespace InterviewTests
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
-                    Question2 q2 = new Question2();
-                    var result = q2.ReverseKth(line);
+                    Question3 q3 = new Question3();
+                    var result = q3.GetChange(line);
                     Console.WriteLine(result);
                 }
         }
