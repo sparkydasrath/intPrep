@@ -53,6 +53,7 @@
     <Compile Include="Blackstone\Question1Tests.cs" />
     <Compile Include="Blackstone\Question3Tests.cs" />
     <Compile Include="Blackstone\ReverseKthNumbersTests.cs" />
+    <Compile Include="Pivotal\MySetTests.cs" />
     <Compile Include="StrategyTests.cs" />
     <Compile Include="NumberGenerationStrategyMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
