@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Annaly.cs" />
     <Compile Include="Blackstone\CashRegister.cs" />
+    <Compile Include="Blackstone\ChutesAndLadders\Board.cs" />
+    <Compile Include="Blackstone\ChutesAndLadders\Player.cs" />
+    <Compile Include="Blackstone\ChutesAndLadders\Program.cs" />
+    <Compile Include="Blackstone\ChutesAndLadders\Square.cs" />
     <Compile Include="Blackstone\Denominations.cs" />
     <Compile Include="Blackstone\Question2.cs" />
     <Compile Include="Blackstone\Question1.cs" />
@@ -70,12 +74,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Blackstone\ChutesAndLadders\Chutes &amp; Ladders.pdf" />
+    <None Include="Blackstone\ChutesAndLadders\original_c_l.zip" />
     <None Include="centerbridge\centerbridgeReadme.md" />
     <None Include="packages.config" />
     <None Include="talan\2019.03.25_talan.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Blackstone\cashRegister.jpeg" />
+    <Content Include="Blackstone\ChutesAndLadders\README.txt" />
     <Content Include="Blackstone\q1.png" />
     <Content Include="Blackstone\q2.png" />
     <Content Include="Blackstone\q3a.png" />
